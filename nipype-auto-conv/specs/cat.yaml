@@ -105,7 +105,7 @@ tests:
 - inputs:
   # dict[str, str] - values to provide to inputs fields in the task initialisation
   # (if not specified, will try to choose a sensible value)
-    sel: '""[0,2]""'
+    sel: '"''[0,2]''"'
     in_files:
     out_file:
   imports:
@@ -130,7 +130,7 @@ doctests:
   # dict[str, str] - name-value pairs for inputs to be provided to the doctest.
   # If the field is of file-format type and the value is None, then the
   # '.mock()' method of the corresponding class is used instead.
-    sel: '""[0,2]""'
+    sel: '"''[0,2]''"'
     in_files:
     out_file:
   imports:

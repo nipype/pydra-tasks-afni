@@ -99,7 +99,7 @@ tests:
   # (if not specified, will try to choose a sensible value)
     in_file: '"Fred+orig"'
     master:
-    warp: '""Fred_WARP+tlrc Fred.Xaff12.1D""'
+    warp: '"''Fred_WARP+tlrc Fred.Xaff12.1D''"'
   imports:
   # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
@@ -124,7 +124,7 @@ doctests:
   # '.mock()' method of the corresponding class is used instead.
     in_file: '"Fred+orig"'
     master:
-    warp: '""Fred_WARP+tlrc Fred.Xaff12.1D""'
+    warp: '"''Fred_WARP+tlrc Fred.Xaff12.1D''"'
   imports:
   # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys

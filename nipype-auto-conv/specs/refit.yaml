@@ -136,7 +136,7 @@ tests:
   # dict[str, str] - values to provide to inputs fields in the task initialisation
   # (if not specified, will try to choose a sensible value)
     in_file:
-    atrfloat: ("IJK_TO_DICOM_REAL", ""1 0.2 0 0 -0.2 1 0 0 0 0 1 0"")
+    atrfloat: ("IJK_TO_DICOM_REAL", "'1 0.2 0 0 -0.2 1 0 0 0 0 1 0'")
   imports:
   # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
@@ -173,7 +173,7 @@ doctests:
   # If the field is of file-format type and the value is None, then the
   # '.mock()' method of the corresponding class is used instead.
     in_file:
-    atrfloat: ("IJK_TO_DICOM_REAL", ""1 0.2 0 0 -0.2 1 0 0 0 0 1 0"")
+    atrfloat: ("IJK_TO_DICOM_REAL", "'1 0.2 0 0 -0.2 1 0 0 0 0 1 0'")
   imports:
   # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys

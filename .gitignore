@@ -137,4 +137,5 @@ dmypy.json
 # Mac garbarge
 .DS_store
 
-pydra/tasks/afni/auto
+/pydra/tasks/afni/auto
+/pydra/tasks/afni/_version.py
