@@ -53,7 +53,7 @@ def work_dir():
     return Path(work_dir)
 
 
-def pass_after_timout(seconds, poll_interval=0.1):
+def pass_after_timeout(seconds, poll_interval=0.1):
     """Cancel the test after a certain period, after which it is assumed that the arguments
     passed to the underying command have passed its internal validation (so we don't have
     to wait until the tool completes)
