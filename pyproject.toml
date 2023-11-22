@@ -3,11 +3,17 @@ requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
 
 [project]
-name = "pydra-tasks-afni"
+name = "pydra-afni"
 description = "Pydra tasks package for afni"
-readme = "README.md"
+readme = "README.rst"
 requires-python = ">=3.8"
-dependencies = ["pydra >=0.22"]
+dependencies = [
+    "pydra >=0.22",
+    "fileformats >=0.8.3",
+    "fileformats-datascience >=0.1",
+    "fileformats-medimage >=0.4.1",
+    "fileformats-medimage-afni"
+]
 license = {file = "LICENSE"}
 authors = [{name = "Nipype developers", email = "neuroimaging@python.org"}]
 maintainers = [{name = "Nipype developers", email = "neuroimaging@python.org"}]
@@ -44,6 +50,10 @@ test = [
     "pytest-xdist",
     "pytest-rerunfailures",
     "codecov",
+    "fileformats-extras",
+    "fileformats-datascience-extras",
+    "fileformats-medimage-extras",
+    "fileformats-medimage-afni-extras"
 ]
 
 [tool.hatch.version]
