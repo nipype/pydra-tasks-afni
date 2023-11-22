@@ -10,11 +10,6 @@ class Dset(File):
     binary = True
 
 
-class Nii[0](File):
-    ext = ".nii[0]"
-    binary = True
-
-
 class Threed(File):
     ext = ".3D"
     binary = True
@@ -42,11 +37,6 @@ class All1(File):
 
 class Oned(File):
     ext = ".1D"
-    binary = True
-
-
-class Unit errts+tlrc(File):
-    ext = ".unit errts+tlrc"
     binary = True
 
 

@@ -139,3 +139,5 @@ dmypy.json
 
 /pydra/tasks/afni/auto
 /pydra/tasks/afni/_version.py
+
+_version.py
