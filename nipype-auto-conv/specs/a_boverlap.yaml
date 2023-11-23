@@ -75,23 +75,19 @@ tests:
     # type=file|default=<undefined>: input file A
     in_file_b:
     # type=file|default=<undefined>: input file B
-    out_file:
+    # out_file:
     # type=file: output file
     # type=file|default=<undefined>: collect output to a file
-    no_automask:
+    no_automask: "False"
     # type=bool|default=False: consider input datasets as masks
-    quiet:
+    quiet: "False"
     # type=bool|default=False: be as quiet as possible (without being entirely mute)
-    verb:
+    verb: "False"
     # type=bool|default=False: print out some progress reports (to stderr)
-    num_threads:
+    num_threads: 1
     # type=int|default=1: set number of threads
     outputtype:
     # type=enum|default='AFNI'|allowed['AFNI','NIFTI','NIFTI_GZ']: AFNI output filetype
-    args:
-    # type=str|default='': Additional parameters to the command
-    environ:
-    # type=dict|default={}: Environment variables
   imports:
   # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
@@ -114,7 +110,7 @@ tests:
     # type=file|default=<undefined>: input file A
     in_file_b:
     # type=file|default=<undefined>: input file B
-    out_file:
+    # out_file:
     # type=file: output file
     # type=file|default=<undefined>: collect output to a file
   imports:
