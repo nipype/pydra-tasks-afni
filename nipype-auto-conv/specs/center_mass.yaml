@@ -88,7 +88,7 @@ tests:
     automask:
     # type=bool|default=False: Generate the mask automatically
     set_cm:
-    # type=tuple|default=(<traits.trait_types.Float object at 0x1123203d0>, <traits.trait_types.Float object at 0x112320430>, <traits.trait_types.Float object at 0x112320490>): After computing the center of mass, set the origin fields in the header so that the center of mass will be at (x,y,z) in DICOM coords.
+    # type=tuple|default=(<traits.trait_types.Float object at 0x10b55c050>, <traits.trait_types.Float object at 0x10b55c0d0>, <traits.trait_types.Float object at 0x10b55c150>): After computing the center of mass, set the origin fields in the header so that the center of mass will be at (x,y,z) in DICOM coords.
     local_ijk:
     # type=bool|default=False: Output values as (i,j,k) in local orientation
     roi_vals:

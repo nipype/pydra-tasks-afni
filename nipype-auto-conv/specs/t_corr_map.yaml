@@ -161,7 +161,7 @@ tests:
     polort:
     # type=int|default=0: 
     bandpass:
-    # type=tuple|default=(<traits.trait_types.Float object at 0x11228fdf0>, <traits.trait_types.Float object at 0x11228fe50>): 
+    # type=tuple|default=(<traits.trait_types.Float object at 0x10b46bb50>, <traits.trait_types.Float object at 0x10b46be90>): 
     regress_out_timeseries:
     # type=file|default=<undefined>: 
     blur_fwhm:

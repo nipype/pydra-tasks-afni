@@ -36,7 +36,7 @@ inputs:
   # from the nipype interface, but you may want to be more specific, particularly
   # for file types, where specifying the format also specifies the file that will be
   # passed to the field in the automatically generated unittests.
-    in_file: medimage-afni/gii
+    in_file: medimage/gifti
     # type=file|default=<undefined>: input file to ConvertDset
     out_file: medimage-afni/dset
     # type=file: output file

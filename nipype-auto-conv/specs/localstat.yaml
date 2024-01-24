@@ -91,7 +91,7 @@ tests:
     reduce_grid:
     # type=traitcompound|default=None: Compute output on a grid that is reduced by the specified factors. If a single value is passed, output is resampled to the specified isotropic grid. Otherwise, the 3 inputs describe the reduction in the X, Y, and Z directions. This option speeds up computations at the expense of resolution. It should only be used when the nbhd is quite large with respect to the input's resolution, and the resultant stats are expected to be smooth.
     reduce_restore_grid:
-    # type=traitcompound|default=None: Like reduce_grid, but also resample output back to inputgrid.
+    # type=traitcompound|default=None: Like reduce_grid, but also resample output back to input grid.
     reduce_max_vox:
     # type=float|default=0.0: Like reduce_restore_grid, but automatically set Rx Ry Rz sothat the computation grid is at a resolution of nbhd/MAX_VOXvoxels.
     grid_rmode:

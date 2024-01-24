@@ -18,8 +18,7 @@
 #     >>> deconvolve.inputs.in_files = ['functional.nii', 'functional2.nii']
 #     >>> deconvolve.inputs.out_file = 'output.nii'
 #     >>> deconvolve.inputs.x1D = 'output.1D'
-#     >>> stim_times = [(1, 'timeseries.txt', 'SPMG1(4)')]
-#     >>> deconvolve.inputs.stim_times = stim_times
+#     >>> deconvolve.inputs.stim_times = [(1, 'timeseries.txt', 'SPMG1(4)')]
 #     >>> deconvolve.inputs.stim_label = [(1, 'Houses')]
 #     >>> deconvolve.inputs.gltsym = ['SYM: +Houses']
 #     >>> deconvolve.inputs.glt_label = [(1, 'Houses')]
@@ -215,7 +214,7 @@ tests:
     x1D:
     # type=file: save out X matrix
     # type=file|default=<undefined>: specify name for saved X matrix
-    stim_times: stim_times
+    stim_times: '[(1, "timeseries.txt", "SPMG1(4)")]'
     # type=list|default=[]: generate a response model from a set of stimulus times given in file.
     stim_label: '[(1, "Houses")]'
     # type=list|default=[]: label for kth input stimulus (e.g., Label1)
@@ -253,7 +252,7 @@ doctests:
     x1D:
     # type=file: save out X matrix
     # type=file|default=<undefined>: specify name for saved X matrix
-    stim_times: stim_times
+    stim_times: '[(1, "timeseries.txt", "SPMG1(4)")]'
     # type=list|default=[]: generate a response model from a set of stimulus times given in file.
     stim_label: '[(1, "Houses")]'
     # type=list|default=[]: label for kth input stimulus (e.g., Label1)
