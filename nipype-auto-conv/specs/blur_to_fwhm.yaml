@@ -36,15 +36,18 @@ inputs:
   # from the nipype interface, but you may want to be more specific, particularly
   # for file types, where specifying the format also specifies the file that will be
   # passed to the field in the automatically generated unittests.
-    in_file: medimage/nifti1
-    # type=file|default=<undefined>: The dataset that will be smoothed
     blurmaster: generic/file
     # type=file|default=<undefined>: The dataset whose smoothness controls the process.
+    in_file: medimage/nifti1
+    # type=file|default=<undefined>: The dataset that will be smoothed
     mask: generic/file
     # type=file|default=<undefined>: Mask dataset, if desired. Voxels NOT in mask will be set to zero in output.
-    out_file: generic/file
+    out_file: Path
     # type=file: output file
     # type=file|default=<undefined>: output image file name
+  callable_defaults:
+  # dict[str, str] - names of methods/callable classes defined in the adjacent `*_callables.py`
+  # to set as the `default` method of input fields
   metadata:
   # dict[str, dict[str, any]] - additional metadata to set on any of the input fields (e.g. out_file: position: 1)
 outputs:
@@ -96,7 +99,7 @@ tests:
     environ:
     # type=dict|default={}: Environment variables
   imports:
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   expected_outputs:
   # dict[str, str] - expected values for selected outputs, noting that tests will typically
@@ -118,7 +121,7 @@ tests:
     fwhm: '2.5'
     # type=float|default=0.0: Blur until the 3D FWHM reaches this value (in mm)
   imports:
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   expected_outputs:
   # dict[str, str] - expected values for selected outputs, noting that tests will typically
@@ -144,7 +147,7 @@ doctests:
     fwhm: '2.5'
     # type=float|default=0.0: Blur until the 3D FWHM reaches this value (in mm)
   imports:
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   directive:
   # str - any doctest directive to place on the cmdline call, e.g. # doctest: +ELLIPSIS

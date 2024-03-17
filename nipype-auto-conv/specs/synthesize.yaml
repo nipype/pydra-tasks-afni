@@ -42,9 +42,12 @@ inputs:
     # type=file|default=<undefined>: Read the dataset output from 3dDeconvolve via the '-cbucket' option.
     matrix: medimage-afni/oned
     # type=file|default=<undefined>: Read the matrix output from 3dDeconvolve via the '-x1D' option.
-    out_file: generic/file
+    out_file: Path
     # type=file: output file
     # type=file|default=<undefined>: output dataset prefix name (default 'syn')
+  callable_defaults:
+  # dict[str, str] - names of methods/callable classes defined in the adjacent `*_callables.py`
+  # to set as the `default` method of input fields
   metadata:
   # dict[str, dict[str, any]] - additional metadata to set on any of the input fields (e.g. out_file: position: 1)
 outputs:
@@ -96,7 +99,7 @@ tests:
     environ:
     # type=dict|default={}: Environment variables
   imports:
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   expected_outputs:
   # dict[str, str] - expected values for selected outputs, noting that tests will typically
@@ -120,7 +123,7 @@ tests:
     select: '["baseline"]'
     # type=list|default=[]: A list of selected columns from the matrix (and the corresponding coefficient sub-bricks from the cbucket). Valid types include 'baseline',  'polort', 'allfunc', 'allstim', 'all', Can also provide 'something' where something matches a stim_label from 3dDeconvolve, and 'digits' where digits are the numbers of the select matrix columns by numbers (starting at 0), or number ranges of the form '3..7' and '3-7'.
   imports:
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   expected_outputs:
   # dict[str, str] - expected values for selected outputs, noting that tests will typically
@@ -148,7 +151,7 @@ doctests:
     select: '["baseline"]'
     # type=list|default=[]: A list of selected columns from the matrix (and the corresponding coefficient sub-bricks from the cbucket). Valid types include 'baseline',  'polort', 'allfunc', 'allstim', 'all', Can also provide 'something' where something matches a stim_label from 3dDeconvolve, and 'digits' where digits are the numbers of the select matrix columns by numbers (starting at 0), or number ranges of the form '3..7' and '3-7'.
   imports:
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   directive:
   # str - any doctest directive to place on the cmdline call, e.g. # doctest: +ELLIPSIS

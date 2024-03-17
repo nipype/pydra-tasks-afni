@@ -48,21 +48,24 @@ inputs:
   # from the nipype interface, but you may want to be more specific, particularly
   # for file types, where specifying the format also specifies the file that will be
   # passed to the field in the automatically generated unittests.
-    in_file: medimage/nifti1
-    # type=file|default=<undefined>: input file to 3dTproject
-    out_file: medimage/nifti-gz
-    # type=file: output file
-    # type=file|default=<undefined>: output image file name
     censor: generic/file
     # type=file|default=<undefined>: Filename of censor .1D time series. This is a file of 1s and 0s, indicating which time points are to be included (1) and which are to be excluded (0).
     concat: generic/file
     # type=file|default=<undefined>: The catenation file, as in 3dDeconvolve, containing the TR indexes of the start points for each contiguous run within the input dataset (the first entry should be 0).  * Also as in 3dDeconvolve, if the input dataset is   automatically catenated from a collection of datasets,   then the run start indexes are determined directly,   and '-concat' is not needed (and will be ignored). * Each run must have at least 9 time points AFTER   censoring, or the program will not work! * The only use made of this input is in setting up   the bandpass/stopband regressors. * '-ort' and '-dsort' regressors run through all time   points, as read in.  If you want separate projections   in each run, then you must either break these ort files   into appropriate components, OR you must run 3dTproject   for each run separately, using the appropriate pieces   from the ort files via the ``{...}`` selector for the   1D files and the ``[...]`` selector for the datasets.  
-    ort: generic/file
-    # type=file|default=<undefined>: Remove each column in file. Each column will have its mean removed.
     dsort: generic/file+list-of
     # type=inputmultiobject|default=[]: Remove the 3D+time time series in dataset fset.  * That is, 'fset' contains a different nuisance time   series for each voxel (e.g., from AnatICOR). * Multiple -dsort options are allowed.  
+    in_file: medimage/nifti1
+    # type=file|default=<undefined>: input file to 3dTproject
     mask: generic/file
     # type=file|default=<undefined>: Only operate on voxels nonzero in the mset dataset.  * Voxels outside the mask will be filled with zeros. * If no masking option is given, then all voxels   will be processed.  
+    ort: generic/file
+    # type=file|default=<undefined>: Remove each column in file. Each column will have its mean removed.
+    out_file: Path
+    # type=file: output file
+    # type=file|default=<undefined>: output image file name
+  callable_defaults:
+  # dict[str, str] - names of methods/callable classes defined in the adjacent `*_callables.py`
+  # to set as the `default` method of input fields
   metadata:
   # dict[str, dict[str, any]] - additional metadata to set on any of the input fields (e.g. out_file: position: 1)
 outputs:
@@ -134,7 +137,7 @@ tests:
     environ:
     # type=dict|default={}: Environment variables
   imports:
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   expected_outputs:
   # dict[str, str] - expected values for selected outputs, noting that tests will typically
@@ -159,11 +162,11 @@ tests:
     # type=int|default=0: Remove polynomials up to and including degree pp.  * Default value is 2. * It makes no sense to use a value of pp greater than   2, if you are bandpassing out the lower frequencies! * For catenated datasets, each run gets a separate set   set of pp+1 Legendre polynomial regressors. * Use of -polort -1 is not advised (if data mean != 0),   even if -ort contains constant terms, as all means are   removed.  
     automask: 'True'
     # type=bool|default=False: Generate a mask automatically
-    out_file:
+    out_file: '"projected.nii.gz"'
     # type=file: output file
     # type=file|default=<undefined>: output image file name
   imports:
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   expected_outputs:
   # dict[str, str] - expected values for selected outputs, noting that tests will typically
@@ -192,11 +195,11 @@ doctests:
     # type=int|default=0: Remove polynomials up to and including degree pp.  * Default value is 2. * It makes no sense to use a value of pp greater than   2, if you are bandpassing out the lower frequencies! * For catenated datasets, each run gets a separate set   set of pp+1 Legendre polynomial regressors. * Use of -polort -1 is not advised (if data mean != 0),   even if -ort contains constant terms, as all means are   removed.  
     automask: 'True'
     # type=bool|default=False: Generate a mask automatically
-    out_file:
+    out_file: '"projected.nii.gz"'
     # type=file: output file
     # type=file|default=<undefined>: output image file name
   imports:
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   directive:
   # str - any doctest directive to place on the cmdline call, e.g. # doctest: +ELLIPSIS

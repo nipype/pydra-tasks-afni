@@ -38,9 +38,12 @@ inputs:
   # passed to the field in the automatically generated unittests.
     in_file: medimage/nifti1
     # type=file|default=<undefined>: input file
-    out_file: generic/file
+    out_file: Path
     # type=file: output file
     # type=file|default=<undefined>: 
+  callable_defaults:
+  # dict[str, str] - names of methods/callable classes defined in the adjacent `*_callables.py`
+  # to set as the `default` method of input fields
   metadata:
   # dict[str, dict[str, any]] - additional metadata to set on any of the input fields (e.g. out_file: position: 1)
 outputs:
@@ -60,6 +63,18 @@ outputs:
   callables:
   # dict[str, str] - names of methods/callable classes defined in the adjacent `*_callables.py`
   # to set to the `callable` attribute of output fields
+    x_max: x_max_callable
+    # type=int: 
+    x_min: x_min_callable
+    # type=int: 
+    y_max: y_max_callable
+    # type=int: 
+    y_min: y_min_callable
+    # type=int: 
+    z_max: z_max_callable
+    # type=int: 
+    z_min: z_min_callable
+    # type=int: 
   templates:
   # dict[str, str] - `output_file_template` values to be provided to output fields
   requirements:
@@ -86,7 +101,7 @@ tests:
     environ:
     # type=dict|default={}: Environment variables
   imports:
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   expected_outputs:
   # dict[str, str] - expected values for selected outputs, noting that tests will typically
@@ -108,7 +123,7 @@ tests:
     padding: '5'
     # type=int|default=0: Number of extra voxels to pad on each side of box
   imports:
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   expected_outputs:
   # dict[str, str] - expected values for selected outputs, noting that tests will typically
@@ -134,7 +149,7 @@ doctests:
     padding: '5'
     # type=int|default=0: Number of extra voxels to pad on each side of box
   imports:
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   directive:
   # str - any doctest directive to place on the cmdline call, e.g. # doctest: +ELLIPSIS

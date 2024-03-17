@@ -41,9 +41,12 @@ inputs:
   # passed to the field in the automatically generated unittests.
     in_files: medimage/nifti1+list-of
     # type=inputmultiobject|default=[]: input file to 3dTcat
-    out_file: medimage/nifti1
+    out_file: Path
     # type=file: output file
     # type=file|default=<undefined>: output image file name
+  callable_defaults:
+  # dict[str, str] - names of methods/callable classes defined in the adjacent `*_callables.py`
+  # to set as the `default` method of input fields
   metadata:
   # dict[str, dict[str, any]] - additional metadata to set on any of the input fields (e.g. out_file: position: 1)
 outputs:
@@ -89,7 +92,7 @@ tests:
     environ:
     # type=dict|default={}: Environment variables
   imports:
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   expected_outputs:
   # dict[str, str] - expected values for selected outputs, noting that tests will typically
@@ -108,13 +111,13 @@ tests:
   # (if not specified, will try to choose a sensible value)
     in_files:
     # type=inputmultiobject|default=[]: input file to 3dTcat
-    out_file:
+    out_file: '"functional_tcat.nii"'
     # type=file: output file
     # type=file|default=<undefined>: output image file name
     rlt: '"+"'
     # type=enum|default=''|allowed['','+','++']: Remove linear trends in each voxel time series loaded from each input dataset, SEPARATELY. Option -rlt removes the least squares fit of 'a+b*t' to each voxel time series. Option -rlt+ adds dataset mean back in. Option -rlt++ adds overall mean of all dataset timeseries back in.
   imports:
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   expected_outputs:
   # dict[str, str] - expected values for selected outputs, noting that tests will typically
@@ -137,13 +140,13 @@ doctests:
   # '.mock()' method of the corresponding class is used instead.
     in_files:
     # type=inputmultiobject|default=[]: input file to 3dTcat
-    out_file:
+    out_file: '"functional_tcat.nii"'
     # type=file: output file
     # type=file|default=<undefined>: output image file name
     rlt: '"+"'
     # type=enum|default=''|allowed['','+','++']: Remove linear trends in each voxel time series loaded from each input dataset, SEPARATELY. Option -rlt removes the least squares fit of 'a+b*t' to each voxel time series. Option -rlt+ adds dataset mean back in. Option -rlt++ adds overall mean of all dataset timeseries back in.
   imports:
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   directive:
   # str - any doctest directive to place on the cmdline call, e.g. # doctest: +ELLIPSIS

@@ -40,9 +40,12 @@ inputs:
   # passed to the field in the automatically generated unittests.
     in_files: medimage-afni/oned+list-of
     # type=list|default=[]: 
-    out_file: medimage-afni/oned
+    out_file: Path
     # type=file: output file
     # type=file|default='catout.1d': output (concatenated) file name
+  callable_defaults:
+  # dict[str, str] - names of methods/callable classes defined in the adjacent `*_callables.py`
+  # to set as the `default` method of input fields
   metadata:
   # dict[str, dict[str, any]] - additional metadata to set on any of the input fields (e.g. out_file: position: 1)
 outputs:
@@ -104,7 +107,7 @@ tests:
     environ:
     # type=dict|default={}: Environment variables
   imports:
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   expected_outputs:
   # dict[str, str] - expected values for selected outputs, noting that tests will typically
@@ -125,11 +128,11 @@ tests:
     # type=str|default='': Apply the same column/row selection string to all filenames on the command line.
     in_files:
     # type=list|default=[]: 
-    out_file:
+    out_file: '"catout.1d"'
     # type=file: output file
     # type=file|default='catout.1d': output (concatenated) file name
   imports:
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   expected_outputs:
   # dict[str, str] - expected values for selected outputs, noting that tests will typically
@@ -154,11 +157,11 @@ doctests:
     # type=str|default='': Apply the same column/row selection string to all filenames on the command line.
     in_files:
     # type=list|default=[]: 
-    out_file:
+    out_file: '"catout.1d"'
     # type=file: output file
     # type=file|default='catout.1d': output (concatenated) file name
   imports:
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   directive:
   # str - any doctest directive to place on the cmdline call, e.g. # doctest: +ELLIPSIS
