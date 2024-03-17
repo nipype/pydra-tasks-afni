@@ -10,6 +10,7 @@ __pycache__/
 .Python
 build/
 develop-eggs/
+_version.py
 dist/
 downloads/
 eggs/
@@ -130,3 +131,15 @@ dmypy.json
 
 # Pycharm
 .idea
+
+# Vim
+.*.sw[op]
+
+# VS Code
+.vscode
+
+# Mac garbarge
+.DS_store
+
+/pydra/tasks/afni/auto
+/pydra/tasks/afni/_version.py
