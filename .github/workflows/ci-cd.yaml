@@ -141,6 +141,9 @@ jobs:
         name: converted-nipype
         path: pydra/tasks/afni/auto
 
+    - name: Show the contents of the auto-generated tasks
+      run: tree pydra
+
     - name: Strip auto package from gitignore so it is included in package
       run: |
         sed -i '/\/src\/pydra\/tasks\/afni\/auto/d' .gitignore
