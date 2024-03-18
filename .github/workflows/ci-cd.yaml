@@ -146,7 +146,7 @@ jobs:
 
     - name: Strip auto package from gitignore so it is included in package
       run: |
-        sed -i '/\/src\/pydra\/tasks\/afni\/auto/d' .gitignore
+        sed -i '/\/pydra\/tasks\/afni\/auto/d' .gitignore
 
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v4
