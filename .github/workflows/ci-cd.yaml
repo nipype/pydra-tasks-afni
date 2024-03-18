@@ -123,31 +123,29 @@ jobs:
     - name: Get Download cache Key
       id: cache-key
       run: echo "::set-output name=key::afni-linux-ubuntu22_amd64-7.4.1"
-    - name: Cache FreeSurfer
+    - name: Cache AFNI
       uses: actions/cache@v2
       with:
         path: $HOME/downloads/afni
         key: ${{ steps.cache-key.outputs.key }}
         restore-keys: |
           afni-linux-ubuntu22_amd64-7.4.1
-    - name: Download FreeSurfer
+    - name: Download AFNI
       if: steps.cache-key.outputs.key != steps.cache-hit.outputs.key
       run: |
         mkdir -p $HOME/downloads/afni
         curl -s -o $HOME/downloads/afni/afni-linux-ubuntu22_amd64-7.4.1.tar.gz https://surfer.nmr.mgh.harvard.edu/pub/dist/afni/7.4.1/afni-linux-ubuntu22_amd64-7.4.1.tar.gz
       shell: bash
-    - name: Install Freesurfer
-      env:
-        FREESURFER_LICENCE: ${{ secrets.FREESURFER_LICENCE }}
+    - name: Install AFNI
       run: |
         pushd $HOME/downloads/afni
         tar -zxpf afni-linux-ubuntu22_amd64-7.4.1.tar.gz
         mv afni $HOME/
         popd
-        export FREESURFER_HOME=$HOME/afni
-        source $FREESURFER_HOME/SetUpFreeSurfer.sh
-        echo $FREESURFER_LICENCE > $FREESURFER_HOME/license.txt
-        export PATH=$FREESURFER_HOME/bin:$PATH
+        pushd $HOME/afni
+        sudo OS_notes.linux_ubuntu_22_64_a_admin.txt 2>&1 | tee o.ubuntu_22_a.txt
+        echo "$HOME/afni" >> $GITHUB_PATH
+        afni_system_check.py -check_all
     - uses: actions/checkout@v3
     - name: Revert version to most recent tag on upstream update
       if: github.event_name == 'repository_dispatch'
