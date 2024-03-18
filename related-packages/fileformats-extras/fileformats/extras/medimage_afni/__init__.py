@@ -24,9 +24,7 @@ def gen_sample_oned_data(
 @FileSet.generate_sample_data.register
 def gen_sample_head_data(
     head: Head,
-    dest_dir: Path,
-    seed: ty.Union[int, Random] = 0,
-    stem: ty.Optional[str] = None,
+    generator: SampleFileGenerator,
 ) -> ty.Iterable[Path]:
     raise NotImplementedError
 
