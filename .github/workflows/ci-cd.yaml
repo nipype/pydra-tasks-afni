@@ -114,67 +114,59 @@ jobs:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
-        python-version: ['3.8']  # '3.11'
+        python-version: ['3.8', '3.11']
     steps:
+    
     - name: Removed unnecessary tools to free space
       run: |
         sudo rm -rf /usr/share/dotnet
-        sudo rm -rf "$AGENT_TOOLSDIRECTORY"      
-    - name: Get Download cache Key
-      id: cache-key
-      run: echo "::set-output name=key::afni-linux-ubuntu22_amd64-7.4.1"
-    - name: Cache AFNI
-      uses: actions/cache@v2
-      with:
-        path: $HOME/downloads/afni
-        key: ${{ steps.cache-key.outputs.key }}
-        restore-keys: |
-          afni-linux-ubuntu22_amd64-7.4.1
-    - name: Download AFNI
-      if: steps.cache-key.outputs.key != steps.cache-hit.outputs.key
-      run: |
-        mkdir -p $HOME/downloads/afni
-        curl -s -o $HOME/downloads/afni/afni-linux-ubuntu22_amd64-7.4.1.tar.gz https://surfer.nmr.mgh.harvard.edu/pub/dist/afni/7.4.1/afni-linux-ubuntu22_amd64-7.4.1.tar.gz
-      shell: bash
-    - name: Install AFNI
-      run: |
-        pushd $HOME/downloads/afni
-        tar -zxpf afni-linux-ubuntu22_amd64-7.4.1.tar.gz
-        mv afni $HOME/
-        popd
-        pushd $HOME/afni
-        sudo OS_notes.linux_ubuntu_22_64_a_admin.txt 2>&1 | tee o.ubuntu_22_a.txt
-        echo "$HOME/afni" >> $GITHUB_PATH
-        afni_system_check.py -check_all
-    - uses: actions/checkout@v3
+        sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
     - name: Revert version to most recent tag on upstream update
       if: github.event_name == 'repository_dispatch'
       run: git checkout $(git tag -l | tail -n 1 | awk -F post '{print $1}')
+
+    - name: Install AFNI
+      run: |
+        curl -O https://raw.githubusercontent.com/afni/afni/master/src/other_builds/OS_notes.linux_ubuntu_22_64_a_admin.txt
+        curl -O https://raw.githubusercontent.com/afni/afni/master/src/other_builds/OS_notes.linux_ubuntu_22_64_b_user.tcsh
+        sudo bash OS_notes.linux_ubuntu_22_64_a_admin.txt 2>&1 | tee o.ubuntu_22_a.txt
+    
     - name: Download tasks converted from Nipype 
       uses: actions/download-artifact@v3
       with:
         name: converted-nipype
         path: pydra/tasks/afni/auto
+
     - name: Strip auto package from gitignore so it is included in package
       run: |
         sed -i '/\/src\/pydra\/tasks\/afni\/auto/d' .gitignore
+
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
+
     - name: Install build dependencies
       run: |
         python -m pip install --upgrade pip
+
     - name: Install task package
       run: |
         pip install "./related-packages/fileformats" "./related-packages/fileformats-extras" ".[test]"
         python -c "import pydra.tasks.afni as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
         python -c "import pydra as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
+
     - name: Test with pytest
       run: |
         pytest -sv --doctest-modules ./pydra/tasks/afni \
             --cov pydra.tasks.afni --cov-report xml
-    - uses: codecov/codecov-action@v3
+
+    - name: Upload to CodeCov
+      uses: codecov/codecov-action@v3
       if: ${{ always() }}
       with:
         files: coverage.xml,./fileformats/coverage.xml
