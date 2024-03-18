@@ -2,7 +2,7 @@ from ._version import __version__  # noqa: F401
 from pathlib import Path
 import typing as ty
 from random import Random
-from fileformats.core import FileSet
+from fileformats.core import FileSet, SampleFileGenerator
 from fileformats.medimage_afni import (
     OneD,
     Head,
@@ -16,9 +16,7 @@ from fileformats.medimage_afni import (
 @FileSet.generate_sample_data.register
 def gen_sample_oned_data(
     oned: OneD,
-    dest_dir: Path,
-    seed: ty.Union[int, Random] = 0,
-    stem: ty.Optional[str] = None,
+    generator: SampleFileGenerator,
 ) -> ty.Iterable[Path]:
     raise NotImplementedError
 
@@ -36,9 +34,7 @@ def gen_sample_head_data(
 @FileSet.generate_sample_data.register
 def gen_sample_all1_data(
     all1: All1,
-    dest_dir: Path,
-    seed: ty.Union[int, Random] = 0,
-    stem: ty.Optional[str] = None,
+    generator: SampleFileGenerator,
 ) -> ty.Iterable[Path]:
     raise NotImplementedError
 
@@ -46,9 +42,7 @@ def gen_sample_all1_data(
 @FileSet.generate_sample_data.register
 def gen_sample_r1_data(
     r1: R1,
-    dest_dir: Path,
-    seed: ty.Union[int, Random] = 0,
-    stem: ty.Optional[str] = None,
+    generator: SampleFileGenerator,
 ) -> ty.Iterable[Path]:
     raise NotImplementedError
 
@@ -56,9 +50,7 @@ def gen_sample_r1_data(
 @FileSet.generate_sample_data.register
 def gen_sample_threed_data(
     threed: ThreeD,
-    dest_dir: Path,
-    seed: ty.Union[int, Random] = 0,
-    stem: ty.Optional[str] = None,
+    generator: SampleFileGenerator,
 ) -> ty.Iterable[Path]:
     raise NotImplementedError
 
@@ -66,8 +58,6 @@ def gen_sample_threed_data(
 @FileSet.generate_sample_data.register
 def gen_sample_dset_data(
     dset: Dset,
-    dest_dir: Path,
-    seed: ty.Union[int, Random] = 0,
-    stem: ty.Optional[str] = None,
+    generator: SampleFileGenerator,
 ) -> ty.Iterable[Path]:
     raise NotImplementedError
