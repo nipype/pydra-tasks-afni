@@ -1,11 +1,11 @@
-===============================
+===========================
 Pydra task package for afni
-===============================
+===========================
 
 .. image:: https://github.com/nipype/pydra-afni/actions/workflows/pythonpackage.yaml/badge.svg
    :target: https://github.com/nipype/pydra-afni/actions/workflows/pythonpackage.yaml
-.. .. image:: https://codecov.io/gh/nipype/pydra-afni/branch/main/graph/badge.svg?token=UIS0OGPST7
-..    :target: https://codecov.io/gh/nipype/pydra-afni
+.. image:: https://codecov.io/gh/nipype/pydra-afni/branch/main/graph/badge.svg?token=UIS0OGPST7
+   :target: https://codecov.io/gh/nipype/pydra-afni
 .. image:: https://img.shields.io/pypi/pyversions/pydra-afni.svg
    :target: https://pypi.python.org/pypi/pydra-afni/
    :alt: Supported Python versions
@@ -14,10 +14,10 @@ Pydra task package for afni
    :alt: Latest Version
 
 
-This package contains a collection of Pydra task interfaces for the afni toolkit.
-The basis of this collection has been formed by the semi-automatic conversion of
-existing `Nipype <https://github.com/nipy/nipype>`__ interfaces to Pydra using the
-`Nipype2Pydra <https://github.com/nipype/nipype2pydra>`__ tool
+This package contains a collection of Pydra task interfaces for the `AFNI <https://afni.nimh.nih.gov/>`__
+software toolkit. The basis of this collection has been formed by the semi-automatic
+conversion of existing `Nipype <https://github.com/nipy/nipype>`__ interfaces to Pydra
+using the `Nipype2Pydra <https://github.com/nipype/nipype2pydra>`__ tool
 
 
 Automatically-generated vs manually-curated tasks
@@ -26,8 +26,7 @@ Automatically-generated vs manually-curated tasks
 Automatically generated tasks can be found in the `pydra.tasks.afni.auto` package.
 These packages should be treated with extreme caution as they likely do not pass testing.
 Generated tasks that have been edited and pass testing are imported into one or more of the
-`pydra.tasks.afni.v*` packages, corresponding to the version of the afni toolkit
-they are designed for. 
+`pydra.tasks.afni.v*` packages, corresponding to the version of AFNI they are designed for. 
 
 Tests
 -----
@@ -39,7 +38,8 @@ the necessary dependencies to run the tests
 
    $ pip install -e .[test]
 
-Then the tests, including `doctests` <https://docs.python.org/3/library/doctest.html>`__, can be launched using
+Then the tests, including `doctests` <https://docs.python.org/3/library/doctest.html>`__,
+can be launched using
 
 .. code-block::
 
@@ -71,6 +71,14 @@ Contributing to this package
 Developer installation
 ~~~~~~~~~~~~~~~~~~~~~~
 
+Install the `fileformats <https://arcanaframework.github.io/fileformats/>`__ packages
+corresponding to AFNI specific file formats
+
+
+.. code-block::
+
+   $ pip install -e ./related-packages/fileformats[dev]
+   $ pip install -e ./related-packages/fileformats-extras[dev]
 
 Install repo in developer mode from the source directory and install pre-commit to
 ensure consistent code-style and quality.
@@ -78,7 +86,7 @@ ensure consistent code-style and quality.
 .. code-block::
 
    $ pip install -e .[test,dev]
-$ pre-commit install
+   $ pre-commit install
 
 Next install the requirements for running the auto-conversion script and generate the
 Pydra task interfaces from their Nipype counterparts
