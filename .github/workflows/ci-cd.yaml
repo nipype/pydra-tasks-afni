@@ -12,6 +12,8 @@ on:
     tags: [ '*' ]
   pull_request:
     branches: [ main, develop ]
+  release:
+    types: [published]
   repository_dispatch:
     types: [create-post-release]
 
