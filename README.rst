@@ -101,7 +101,8 @@ The run the conversion script to convert Nipype interfaces to Pydra
 
    $ nipype-auto-conv/generate
 
-## Methodology
+Methodology
+~~~~~~~~~~~
 
 The development of this package is expected to have two phases
 
