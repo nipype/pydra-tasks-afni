@@ -93,7 +93,8 @@ jobs:
 
     - name: Install task package
       run: |
-        pip install "./related-packages/fileformats[dev]" "related-packages/fileformats-extras[dev]"
+        pip install ${{ matrix.pip-flags }} "./related-packages/fileformats[dev]"
+        pip install ${{ matrix.pip-flags }} "related-packages/fileformats-extras[dev]"
         pip install ${{ matrix.pip-flags }} ".[dev]"
         python -c "import pydra.tasks.afni as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
         python -c "import pydra as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
