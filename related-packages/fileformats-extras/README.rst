@@ -1,12 +1,14 @@
-FileFormats-afni Extras
-======================================
-.. image:: https://github.com/nipype/pydra-freesurfer/actions/workflows/ci-cd.yaml/badge.svg
-    :target: https://github.com/nipype/pydra-freesurfer/actions/workflows/ci-cd.yaml
+FileFormats Medimage/ANFI Extras
+================================
+
+.. image:: https://github.com/nipype/pydra-afni/actions/workflows/ci-cd.yaml/badge.svg
+   :target: https://github.com/nipype/pydra-afni/actions/workflows/ci-cd.yaml
 
 
-This is a extras module for the `fileformats-afni <https://github.com/nipype/pydra-freesurfer/>`__
+This is a extras module for the `fileformats-medimage-afni <https://github.com/nipype/pydra-afni/>`__
 fileformats extension package, which provides additional functionality to format classes (i.e. aside
-from basic identification and validation), such as conversion tools, metadata parsers, test data generators, etc...
+from basic identification and validation), such as conversion tools, metadata parsers, sample data
+generators, etc...
 
 
 Quick Installation
@@ -14,7 +16,7 @@ Quick Installation
 
 This extension can be installed for Python 3 using *pip*::
 
-    $ pip3 install fileformats-afni-extras
+    $ pip3 install fileformats-medimage-afni-extras
 
 This will install the core package and any other dependencies
 
