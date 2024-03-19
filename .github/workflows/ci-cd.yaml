@@ -69,8 +69,7 @@ jobs:
         path: pydra/tasks/afni/auto
 
     - name: Strip auto package from gitignore so it is included in package
-      run: |
-        sed -i '/\/pydra\/tasks\/afni\/auto/d' .gitignore
+      run: sed -i '/\/pydra\/tasks\/afni\/auto/d' .gitignore
 
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v4
@@ -278,6 +277,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+    - name: Set up Git user
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
@@ -309,9 +313,11 @@ jobs:
       run: python -m pip install build twine
 
     - name: Strip auto package from gitignore so it is included in package
-      run: sed -i '/\/pydra\/tasks\/afni\/auto/d' .gitignore
+      run: |
+        sed -i '/\/pydra\/tasks\/afni\/auto/d' .gitignore
+        cat .gitignore
 
-    - name: Install task package
+    - name: Install task package to calculate post-release tag
       run: |
         pip install "./related-packages/fileformats" "./related-packages/fileformats-extras" ".[test]"
 
@@ -321,12 +327,12 @@ jobs:
         POST=$(python -c "from pydra.tasks.afni.auto._version import *; print(post_release)")
         echo "TAG=${{ steps.latest_tag.outputs.TAG }}post${POST}" >> $GITHUB_OUTPUT
 
-    - name: Tag release
+    - name: Add auto-generated interfaces to package
       if: github.event_name == 'repository_dispatch'
       run: |
-        git checkout ${{ steps.post_release_tag.outputs.TAG }}
         git add -f pydra/tasks/afni/auto/_version.py
-        git commit -am"added auto-generated version to make new tag for package version"
+        git commit -m"added auto-generated version to make new tag for package version"
+        git tag ${{ steps.post_release_tag.outputs.TAG }}
 
     - name: Build source and wheel distributions
       run: python -m build .
@@ -353,16 +359,16 @@ jobs:
         user: __token__
         password: ${{ secrets.PYPI_API_TOKEN }}
 
-    - name: Create post-release release for releases triggered by nipype2pydra dispatches
-      if: steps.deployable.outputs.DEPLOY && github.event_name == 'repository_dispatch'
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-      with:
-        tag_name: ${{ steps.post_release_tag.outputs.TAG }}
-        release_name: Release ${{ steps.post_release_tag.outputs.TAG }}
-        draft: false
-        prerelease: false        
+    # - name: Create post-release release for releases triggered by nipype2pydra dispatches
+    #   if: steps.deployable.outputs.DEPLOY && github.event_name == 'repository_dispatch'
+    #   uses: actions/create-release@v1
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+    #   with:
+    #     tag_name: ${{ steps.post_release_tag.outputs.TAG }}
+    #     release_name: Release ${{ steps.post_release_tag.outputs.TAG }}
+    #     draft: false
+    #     prerelease: false        
 
 # Deploy on tags if PYPI_API_TOKEN is defined in the repository secrets.
 # Secrets are not accessible in the if: condition [0], so set an output variable [1]
