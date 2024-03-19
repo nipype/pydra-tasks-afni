@@ -323,6 +323,7 @@ jobs:
     - name: Install task package to calculate post-release tag
       run: |
         pip install "./related-packages/fileformats" "./related-packages/fileformats-extras" ".[test]"
+        tree /opt/hostedtoolcache/Python/3.11.8/x64/lib/python3.11/site-packages/pydra/
 
     - name: Generate post-release tag based on Nipype and Nipype2Pydra versions
       id: post_release_tag
