@@ -277,16 +277,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - name: Set up Git user
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: recursive
         fetch-depth: 0
+
+    - name: Set up Git user
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
 
     - name: Get latest tag
       id: latest_tag
