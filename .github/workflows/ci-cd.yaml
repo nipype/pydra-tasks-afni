@@ -273,7 +273,7 @@ jobs:
         packages-dir: ./related-packages/fileformats-extras/dist 
 
   deploy:
-    needs: [deploy-fileformats-extras]
+    needs: [nipype-conv]
     runs-on: ubuntu-latest
     steps:
 
@@ -303,6 +303,9 @@ jobs:
       with:
         name: converted-nipype
         path: pydra/tasks/afni/auto
+
+    - name: Show the contents of the auto-generated tasks
+      run: tree pydra
 
     - name: Set up Python
       uses: actions/setup-python@v4
