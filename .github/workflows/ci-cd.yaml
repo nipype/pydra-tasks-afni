@@ -69,7 +69,9 @@ jobs:
         path: pydra/tasks/afni/auto
 
     - name: Strip auto package from gitignore so it is included in package
-      run: sed -i '/\/pydra\/tasks\/afni\/auto/d' .gitignore
+      run: |
+        sed -i '/\/pydra\/tasks\/afni\/auto/d' .gitignore
+        sed -i '/^_version.py/d' .gitignore
 
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v4
@@ -195,7 +197,7 @@ jobs:
 
 
   deploy-fileformats:
-    needs: [devcheck, test]
+    needs: [devcheck, test, fileformats-test]
     runs-on: ubuntu-latest
     steps:
 
@@ -273,7 +275,7 @@ jobs:
         packages-dir: ./related-packages/fileformats-extras/dist 
 
   deploy:
-    needs: [nipype-conv]
+    needs: [nipype-conv, test, deploy-fileformats, deploy-fileformats-extras]
     runs-on: ubuntu-latest
     steps:
 
@@ -331,7 +333,7 @@ jobs:
         POST=$(python -c "from pydra.tasks.afni.auto._version import *; print(post_release)")
         echo "TAG=${{ steps.latest_tag.outputs.TAG }}post${POST}" >> $GITHUB_OUTPUT
 
-    - name: Add auto-generated interfaces to package
+    - name: Tag post-release version
       if: github.event_name == 'repository_dispatch'
       run: |
         git add -f pydra/tasks/afni/auto/_version.py
