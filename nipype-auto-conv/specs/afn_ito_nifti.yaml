@@ -73,27 +73,23 @@ tests:
       # (if not specified, will try to choose a sensible value)
       in_file:
       # type=file|default=<undefined>: input file to 3dAFNItoNIFTI
-      out_file:
+      #out_file:
       # type=file: output file
       # type=file|default=<undefined>: output image file name
-      pure:
+      pure: "False"
       # type=bool|default=False: Do NOT write an AFNI extension field into the output file. Only use this option if needed. You can also use the 'nifti_tool' program to strip extensions from a file.
-      denote:
+      denote: "False"
       # type=bool|default=False: When writing the AFNI extension field, remove text notes that might contain subject identifying information.
-      oldid:
+      oldid: "False"
       # type=bool|default=False: Give the new dataset the input datasets AFNI ID code.
-      newid:
+      newid: "False"
       # type=bool|default=False: Give the new dataset a new AFNI ID code, to distinguish it from the input dataset.
-      num_threads:
+      num_threads: 1
       # type=int|default=1: set number of threads
-      outputtype:
+      outputtype: "'NIFTI'"
       # type=enum|default='AFNI'|allowed['AFNI','NIFTI','NIFTI_GZ']: AFNI output filetype
-      args:
-      # type=str|default='': Additional parameters to the command
-      environ:
-      # type=dict|default={}: Environment variables
     imports:
-    # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
+    # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
     # consisting of 'module', 'name', and optionally 'alias' keys
     expected_outputs:
     # dict[str, str] - expected values for selected outputs, noting that tests will typically
@@ -112,11 +108,11 @@ tests:
       # (if not specified, will try to choose a sensible value)
       in_file:
       # type=file|default=<undefined>: input file to 3dAFNItoNIFTI
-      out_file: ' "afni_output.nii"'
+      #out_file:
       # type=file: output file
       # type=file|default=<undefined>: output image file name
     imports:
-    # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
+    # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
     # consisting of 'module', 'name', and optionally 'alias' keys
     expected_outputs:
     # dict[str, str] - expected values for selected outputs, noting that tests will typically
