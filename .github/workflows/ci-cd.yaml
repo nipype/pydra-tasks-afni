@@ -335,12 +335,17 @@ jobs:
         POST=$(python -c "from pydra.tasks.afni.auto._version import *; print(post_release)")
         echo "TAG=${{ steps.latest_tag.outputs.TAG }}post${POST}" >> $GITHUB_OUTPUT
 
-    - name: Tag post-release version
-      if: github.event_name == 'repository_dispatch'
+    - name: Add auto directory to git repo and tag it (overwriting previous tag if release event)
+      if: github.event_name == 'release' || github.event_name == 'repository_dispatch'
       run: |
-        git add pydra/tasks/afni/auto/_version.py
+        git add pydra/tasks/afni/auto
         git commit -m"added auto-generated version to make new tag for package version"
-        git tag ${{ steps.post_release_tag.outputs.TAG }}
+        if [ ${{ github.event_name }} == "release"]; then
+          git tag -d ${{ steps.latest_tag.outputs.TAG }};
+          git tag ${{ steps.latest_tag.outputs.TAG }};
+        else
+          git tag ${{ steps.post_release_tag.outputs.TAG }}
+        fi
 
     - name: Build source and wheel distributions
       run: python -m build .
