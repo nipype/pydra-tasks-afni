@@ -377,16 +377,16 @@ jobs:
         user: __token__
         password: ${{ secrets.PYPI_API_TOKEN }}
 
-    # - name: Create post-release release for releases triggered by nipype2pydra dispatches
-    #   if: steps.deployable.outputs.DEPLOY && github.event_name == 'repository_dispatch'
-    #   uses: actions/create-release@v1
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-    #   with:
-    #     tag_name: ${{ steps.post_release_tag.outputs.TAG }}
-    #     release_name: Release ${{ steps.post_release_tag.outputs.TAG }}
-    #     draft: false
-    #     prerelease: false        
+    - name: Create post-release release for releases triggered by nipype2pydra dispatches
+      if: steps.deployable.outputs.DEPLOY && github.event_name == 'repository_dispatch'
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      with:
+        tag_name: ${{ steps.post_release_tag.outputs.TAG }}
+        release_name: Release ${{ steps.post_release_tag.outputs.TAG }}
+        draft: false
+        prerelease: false        
 
 # Deploy on tags if PYPI_API_TOKEN is defined in the repository secrets.
 # Secrets are not accessible in the if: condition [0], so set an output variable [1]
