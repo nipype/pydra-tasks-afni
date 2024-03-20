@@ -253,7 +253,7 @@ jobs:
         packages-dir: ./related-packages/fileformats-extras/dist 
 
   deploy:
-    needs: [nipype-conv, test, deploy-fileformats, deploy-fileformats-extras]
+    needs: [nipype-conv]  # , test, deploy-fileformats, deploy-fileformats-extras]
     runs-on: ubuntu-latest
     steps:
 
