@@ -41,7 +41,7 @@ jobs:
     - name: Run automatic Nipype > Pydra conversion
       run: ./nipype-auto-conv/generate
 
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
         name: converted-nipype
         path: pydra/tasks/afni/auto
@@ -65,7 +65,7 @@ jobs:
       run: git checkout $(git tag -l | grep 'v.*' | tail -n 1 | awk -F post '{print $1}')
 
     - name: Download tasks converted from Nipype 
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: converted-nipype
         path: pydra/tasks/afni/auto
@@ -128,7 +128,7 @@ jobs:
         sudo bash OS_notes.linux_ubuntu_22_64_a_admin.txt 2>&1 | tee o.ubuntu_22_a.txt
     
     - name: Download tasks converted from Nipype 
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: converted-nipype
         path: pydra/tasks/afni/auto
@@ -279,7 +279,7 @@ jobs:
       run: git checkout ${{ steps.latest_tag.outputs.TAG }}
 
     - name: Download tasks converted from Nipype 
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: converted-nipype
         path: pydra/tasks/afni/auto
@@ -298,12 +298,10 @@ jobs:
     - name: Strip auto package from gitignore so it is included in package
       run: |
         sed -i '/\/pydra\/tasks\/afni\/auto/d' .gitignore
-        cat .gitignore
 
     - name: Install task package to calculate post-release tag
       run: |
         pip install "./related-packages/fileformats" "./related-packages/fileformats-extras" ".[test]"
-        tree /opt/hostedtoolcache/Python/3.11.8/x64/lib/python3.11/site-packages/pydra/
 
     - name: Generate post-release tag based on Nipype and Nipype2Pydra versions
       id: post_release_tag
@@ -334,7 +332,7 @@ jobs:
     - name: Check distributions
       run: twine check dist/*
 
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
         name: distributions
         path: dist/
