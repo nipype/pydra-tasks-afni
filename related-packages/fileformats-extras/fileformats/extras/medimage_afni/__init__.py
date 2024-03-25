@@ -5,11 +5,12 @@ from random import Random
 from fileformats.core import FileSet, SampleFileGenerator
 from fileformats.medimage_afni import (
     OneD,
+    Dset,
     Head,
     All1,
     R1,
     ThreeD,
-    Dset,
+    NCorr,
 )
 
 
@@ -58,4 +59,10 @@ def gen_sample_dset_data(
     dset: Dset,
     generator: SampleFileGenerator,
 ) -> ty.Iterable[Path]:
+    raise NotImplementedError
+
+
+def gen_sample_ncorr_data(
+    ncorr: NCorr, dest_dir: Path, seed: ty.Union[int, Random], stem: ty.Optional[str]
+):
     raise NotImplementedError
