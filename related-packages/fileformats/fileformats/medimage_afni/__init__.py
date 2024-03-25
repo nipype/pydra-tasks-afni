@@ -1,32 +1,9 @@
+from ._version import __version__  # noqa: F401
 from fileformats.generic import File
-
-class Oned(File):
-    ext = ".1d"
-    binary = True
-
-
-class Dset(File):
-    ext = ".dset"
-    binary = True
-
-
-class Threed(File):
-    ext = ".3D"
-    binary = True
 
 
 class Head(File):
     ext = ".HEAD"
-    binary = True
-
-
-class Ncorr(File):
-    ext = ".ncorr"
-    binary = True
-
-
-class R1(File):
-    ext = ".r1"
     binary = True
 
 
@@ -35,11 +12,22 @@ class All1(File):
     binary = True
 
 
-class Oned(File):
+class OneD(File):
     ext = ".1D"
     binary = True
 
 
-class Gii(File):
-    ext = ".gii"
+class R1(File):
+    ext = ".r1"
+    binary = True
+
+
+class ThreeD(File):
+    ext = ".3D"
+    binary = True
+    alternate_exts = (".3d",)
+
+
+class Dset(File):
+    ext = ".dset"
     binary = True

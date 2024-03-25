@@ -40,15 +40,18 @@ inputs:
   # passed to the field in the automatically generated unittests.
     in_file: medimage/nifti1
     # type=file|default=<undefined>: input file to 3dBandpass
-    out_file: generic/file
-    # type=file: output file
-    # type=file|default=<undefined>: output file from 3dBandpass
     mask: generic/file
     # type=file|default=<undefined>: mask file
-    orthogonalize_file: generic/file+list-of
-    # type=inputmultiobject|default=[]: Also orthogonalize input to columns in f.1D. Multiple '-ort' options are allowed.
     orthogonalize_dset: generic/file
     # type=file|default=<undefined>: Orthogonalize each voxel to the corresponding voxel time series in dataset 'fset', which must have the same spatial and temporal grid structure as the main input dataset. At present, only one '-dsort' option is allowed.
+    orthogonalize_file: generic/file+list-of
+    # type=inputmultiobject|default=[]: Also orthogonalize input to columns in f.1D. Multiple '-ort' options are allowed.
+    out_file: Path
+    # type=file: output file
+    # type=file|default=<undefined>: output file from 3dBandpass
+  callable_defaults:
+  # dict[str, str] - names of methods/callable classes defined in the adjacent `*_callables.py`
+  # to set as the `default` method of input fields
   metadata:
   # dict[str, dict[str, any]] - additional metadata to set on any of the input fields (e.g. out_file: position: 1)
 outputs:
@@ -118,7 +121,7 @@ tests:
     environ:
     # type=dict|default={}: Environment variables
   imports:
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   expected_outputs:
   # dict[str, str] - expected values for selected outputs, noting that tests will typically
@@ -142,7 +145,7 @@ tests:
     lowpass: '0.1'
     # type=float|default=0.0: lowpass
   imports: &id001
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   - module: nipype.testing
     name: ' example_data'
@@ -166,14 +169,14 @@ doctests:
   # dict[str, str] - name-value pairs for inputs to be provided to the doctest.
   # If the field is of file-format type and the value is None, then the
   # '.mock()' method of the corresponding class is used instead.
-    in_file:
+    in_file: '"functional.nii"'
     # type=file|default=<undefined>: input file to 3dBandpass
     highpass: '0.005'
     # type=float|default=0.0: highpass
     lowpass: '0.1'
     # type=float|default=0.0: lowpass
   imports: *id001
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   directive:
   # str - any doctest directive to place on the cmdline call, e.g. # doctest: +ELLIPSIS

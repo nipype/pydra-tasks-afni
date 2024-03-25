@@ -54,11 +54,14 @@ inputs:
     # type=file|default=<undefined>: operand file to 3dcalc
     in_file_c: generic/file
     # type=file|default=<undefined>: operand file to 3dcalc
-    out_file: medimage-afni/all1,medimage/nifti-gz
-    # type=file: output file
-    # type=file|default=<undefined>: output image file name
     other: generic/file
     # type=file|default=<undefined>: other options
+    out_file: Path
+    # type=file: output file
+    # type=file|default=<undefined>: output image file name
+  callable_defaults:
+  # dict[str, str] - names of methods/callable classes defined in the adjacent `*_callables.py`
+  # to set as the `default` method of input fields
   metadata:
   # dict[str, dict[str, any]] - additional metadata to set on any of the input fields (e.g. out_file: position: 1)
 outputs:
@@ -116,7 +119,7 @@ tests:
     environ:
     # type=dict|default={}: Environment variables
   imports:
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   expected_outputs:
   # dict[str, str] - expected values for selected outputs, noting that tests will typically
@@ -139,13 +142,13 @@ tests:
     # type=file|default=<undefined>: operand file to 3dcalc
     expr: '"a*b"'
     # type=str|default='': expr
-    out_file:
+    out_file: ' "functional_calc.nii.gz"'
     # type=file: output file
     # type=file|default=<undefined>: output image file name
     outputtype: '"NIFTI"'
     # type=enum|default='AFNI'|allowed['AFNI','NIFTI','NIFTI_GZ']: AFNI output filetype
   imports:
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   expected_outputs:
   # dict[str, str] - expected values for selected outputs, noting that tests will typically
@@ -166,13 +169,13 @@ tests:
     # type=file|default=<undefined>: input file to 3dcalc
     expr: '"1"'
     # type=str|default='': expr
-    out_file:
+    out_file: '"rm.epi.all1"'
     # type=file: output file
     # type=file|default=<undefined>: output image file name
     overwrite: 'True'
     # type=bool|default=False: overwrite output
   imports:
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   expected_outputs:
   # dict[str, str] - expected values for selected outputs, noting that tests will typically
@@ -193,19 +196,19 @@ doctests:
   # dict[str, str] - name-value pairs for inputs to be provided to the doctest.
   # If the field is of file-format type and the value is None, then the
   # '.mock()' method of the corresponding class is used instead.
-    in_file_a:
+    in_file_a: '"functional.nii"'
     # type=file|default=<undefined>: input file to 3dcalc
-    in_file_b:
+    in_file_b: '"functional2.nii"'
     # type=file|default=<undefined>: operand file to 3dcalc
     expr: '"a*b"'
     # type=str|default='': expr
-    out_file:
+    out_file: ' "functional_calc.nii.gz"'
     # type=file: output file
     # type=file|default=<undefined>: output image file name
     outputtype: '"NIFTI"'
     # type=enum|default='AFNI'|allowed['AFNI','NIFTI','NIFTI_GZ']: AFNI output filetype
   imports:
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   directive:
   # str - any doctest directive to place on the cmdline call, e.g. # doctest: +ELLIPSIS
@@ -215,17 +218,17 @@ doctests:
   # dict[str, str] - name-value pairs for inputs to be provided to the doctest.
   # If the field is of file-format type and the value is None, then the
   # '.mock()' method of the corresponding class is used instead.
-    in_file_a:
+    in_file_a: '"functional.nii"'
     # type=file|default=<undefined>: input file to 3dcalc
     expr: '"1"'
     # type=str|default='': expr
-    out_file:
+    out_file: '"rm.epi.all1"'
     # type=file: output file
     # type=file|default=<undefined>: output image file name
     overwrite: 'True'
     # type=bool|default=False: overwrite output
   imports:
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   directive:
   # str - any doctest directive to place on the cmdline call, e.g. # doctest: +ELLIPSIS

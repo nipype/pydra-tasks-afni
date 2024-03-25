@@ -42,11 +42,14 @@ inputs:
     # passed to the field in the automatically generated unittests.
     in_files: medimage/nifti1+list-of
     # type=list|default=[]: list of input files, possibly with subbrick selectors
-    out_file: text/text-file
-    # type=file: output file
-    # type=file|default=<undefined>: collect output to a file
     mask: generic/file
     # type=file|default=<undefined>: Use this dataset as a mask
+    out_file: Path
+    # type=file: output file
+    # type=file|default=<undefined>: collect output to a file
+  callable_defaults:
+  # dict[str, str] - names of methods/callable classes defined in the adjacent `*_callables.py`
+  # to set as the `default` method of input fields
   metadata:
   # dict[str, dict[str, any]] - additional metadata to set on any of the input fields (e.g. out_file: position: 1)
 outputs:
@@ -82,7 +85,7 @@ tests:
       mask:
       # type=file|default=<undefined>: Use this dataset as a mask
       mrange:
-      # type=tuple|default=(<traits.trait_types.Float object at 0x112320d60>, <traits.trait_types.Float object at 0x112320dc0>): Means to further restrict the voxels from 'mset' so thatonly those mask values within this range (inclusive) willbe used.
+      # type=tuple|default=(<traits.trait_types.Float object at 0x1155a6bd0>, <traits.trait_types.Float object at 0x1155a6ad0>): Means to further restrict the voxels from 'mset' so thatonly those mask values within this range (inclusive) willbe used.
       demean:
       # type=bool|default=False: Remove the mean from each volume prior to computing the correlation
       docor:
@@ -112,7 +115,7 @@ tests:
       environ:
       # type=dict|default={}: Environment variables
     imports:
-    # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+    # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
     # consisting of 'module', 'name', and optionally 'alias' keys
     expected_outputs:
     # dict[str, str] - expected values for selected outputs, noting that tests will typically
@@ -133,11 +136,11 @@ tests:
       # type=list|default=[]: list of input files, possibly with subbrick selectors
       dodice: "True"
       # type=bool|default=False: Return the Dice coefficient (the Sorensen-Dice index).
-      out_file:
+      out_file: '"out.mask_ae_dice.txt"'
       # type=file: output file
       # type=file|default=<undefined>: collect output to a file
     imports:
-    # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+    # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
     # consisting of 'module', 'name', and optionally 'alias' keys
     expected_outputs:
     # dict[str, str] - expected values for selected outputs, noting that tests will typically
@@ -158,15 +161,15 @@ doctests:
       # dict[str, str] - name-value pairs for inputs to be provided to the doctest.
       # If the field is of file-format type and the value is None, then the
       # '.mock()' method of the corresponding class is used instead.
-      in_files:
+      in_files: '["functional.nii[0]", "structural.nii"]'
       # type=list|default=[]: list of input files, possibly with subbrick selectors
       dodice: "True"
       # type=bool|default=False: Return the Dice coefficient (the Sorensen-Dice index).
-      out_file:
+      out_file: '"out.mask_ae_dice.txt"'
       # type=file: output file
       # type=file|default=<undefined>: collect output to a file
     imports:
-    # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+    # list[nipype2pydra.task.base.importstatement] - list import statements required by the test, with each list item
     # consisting of 'module', 'name', and optionally 'alias' keys
     directive:
     # str - any doctest directive to place on the cmdline call, e.g. # doctest: +ELLIPSIS
