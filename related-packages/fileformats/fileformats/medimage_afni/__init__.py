@@ -1,8 +1,9 @@
 from fileformats.generic import File
 
-class Oned(File):
-    ext = ".1d"
+class OneD(File):
+    ext = ".1D"
     binary = True
+    alternate_exts = (".1d",)
 
 
 class Dset(File):
@@ -10,15 +11,10 @@ class Dset(File):
     binary = True
 
 
-class Nii[0](File):
-    ext = ".nii[0]"
-    binary = True
-
-
-class Threed(File):
+class ThreeD(File):
     ext = ".3D"
     binary = True
-
+    alternate_exts = (".3d",)
 
 class Head(File):
     ext = ".HEAD"
@@ -40,16 +36,3 @@ class All1(File):
     binary = True
 
 
-class Oned(File):
-    ext = ".1D"
-    binary = True
-
-
-class Unit errts+tlrc(File):
-    ext = ".unit errts+tlrc"
-    binary = True
-
-
-class Gii(File):
-    ext = ".gii"
-    binary = True
