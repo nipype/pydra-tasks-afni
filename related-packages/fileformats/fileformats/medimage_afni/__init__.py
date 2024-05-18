@@ -1,4 +1,5 @@
 from fileformats.generic import File
+from ._version import __version__
 
 class OneD(File):
     ext = ".1D"

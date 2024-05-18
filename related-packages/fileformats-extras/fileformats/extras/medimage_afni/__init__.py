@@ -15,6 +15,8 @@ from fileformats.medimage_afni import (
     Unit errts+tlrc,
     Gii,
 )
+from ._version import __version__
+
 
 
 
