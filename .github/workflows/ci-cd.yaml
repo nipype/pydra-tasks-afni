@@ -121,35 +121,8 @@ jobs:
       run: |
         sudo rm -rf /usr/share/dotnet
         sudo rm -rf "$AGENT_TOOLSDIRECTORY"      
-    - name: Get Download cache Key
-      id: cache-key
-      run: echo "::set-output name=key::afni-linux-ubuntu22_amd64-7.4.1"
-    - name: Cache FreeSurfer
-      uses: actions/cache@v2
-      with:
-        path: $HOME/downloads/afni
-        key: ${{ steps.cache-key.outputs.key }}
-        restore-keys: |
-          afni-linux-ubuntu22_amd64-7.4.1
-    - name: Download FreeSurfer
-      if: steps.cache-key.outputs.key != steps.cache-hit.outputs.key
-      run: |
-        mkdir -p $HOME/downloads/afni
-        curl -s -o $HOME/downloads/afni/afni-linux-ubuntu22_amd64-7.4.1.tar.gz https://surfer.nmr.mgh.harvard.edu/pub/dist/afni/7.4.1/afni-linux-ubuntu22_amd64-7.4.1.tar.gz
-      shell: bash
-    - name: Install Freesurfer
-      env:
-        FREESURFER_LICENCE: ${{ secrets.FREESURFER_LICENCE }}
-      run: |
-        pushd $HOME/downloads/afni
-        tar -zxpf afni-linux-ubuntu22_amd64-7.4.1.tar.gz
-        mv afni $HOME/
-        popd
-        export FREESURFER_HOME=$HOME/afni
-        source $FREESURFER_HOME/SetUpFreeSurfer.sh
-        echo $FREESURFER_LICENCE > $FREESURFER_HOME/license.txt
-        export PATH=$FREESURFER_HOME/bin:$PATH
-    - uses: actions/checkout@v3
+
+    - uses: actions/checkout@v4
     - name: Revert version to most recent tag on upstream update
       if: github.event_name == 'repository_dispatch'
       run: git checkout $(git tag -l | tail -n 1 | awk -F post '{print $1}')
