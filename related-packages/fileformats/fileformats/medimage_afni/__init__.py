@@ -22,7 +22,7 @@ class Head(File):
     binary = True
 
 
-class Ncorr(File):
+class NCorr(File):
     ext = ".ncorr"
     binary = True
 
