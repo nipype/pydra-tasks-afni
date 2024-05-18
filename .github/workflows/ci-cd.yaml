@@ -107,7 +107,7 @@ jobs:
         python -c "import fileformats.medimage_afni as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
     - name: Test fileformats with pytest
       run: |
-        cd ./fileformats
+        cd ./related-packages/fileformats
         pytest -sv --cov fileformats.medimage_afni --cov fileformats.extras.medimage_afni --cov-report xml .
 
   test:
