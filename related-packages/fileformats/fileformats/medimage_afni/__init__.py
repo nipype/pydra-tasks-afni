@@ -1,5 +1,6 @@
 from fileformats.generic import File
-from ._version import __version__
+from ._version import __version__  # noqa
+
 
 class OneD(File):
     ext = ".1D"
@@ -16,6 +17,7 @@ class ThreeD(File):
     ext = ".3D"
     binary = True
     alternate_exts = (".3d",)
+
 
 class Head(File):
     ext = ".HEAD"
@@ -35,5 +37,3 @@ class R1(File):
 class All1(File):
     ext = ".all1"
     binary = True
-
-
