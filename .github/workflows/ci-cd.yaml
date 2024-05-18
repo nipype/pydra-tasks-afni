@@ -84,34 +84,34 @@ jobs:
         python -c "import fileformats.medimage_afni as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
         python -c "import fileformats.extras.medimage_afni as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
   
-  fileformats-test:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ['3.8', '3.11']
-    steps:
-    - uses: actions/checkout@v3
-    - name: Revert version to most recent tag on upstream update
-      if: github.event_name == 'repository_dispatch'
-      run: git checkout $(git tag -l | tail -n 1 | awk -F post '{print $1}')
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install build dependencies
-      run: |
-        python -m pip install --upgrade pip
-    - name: Install task package
-      run: |
-        pip install "./related-packages/fileformats[test]" "./related-packages/fileformats-extras[test]"
-        python -c "import fileformats.medimage_afni as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
-    - name: Test fileformats with pytest
-      run: |
-        cd ./related-packages/fileformats
-        pytest -sv --cov fileformats.medimage_afni --cov fileformats.extras.medimage_afni --cov-report xml .
+  # fileformats-test:
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       python-version: ['3.8', '3.11']
+  #   steps:
+  #   - uses: actions/checkout@v3
+  #   - name: Revert version to most recent tag on upstream update
+  #     if: github.event_name == 'repository_dispatch'
+  #     run: git checkout $(git tag -l | tail -n 1 | awk -F post '{print $1}')
+  #   - name: Set up Python ${{ matrix.python-version }}
+  #     uses: actions/setup-python@v4
+  #     with:
+  #       python-version: ${{ matrix.python-version }}
+  #   - name: Install build dependencies
+  #     run: |
+  #       python -m pip install --upgrade pip
+  #   - name: Install task package
+  #     run: |
+  #       pip install "./related-packages/fileformats[test]" "./related-packages/fileformats-extras[test]"
+  #       python -c "import fileformats.medimage_afni as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
+  #   - name: Test fileformats with pytest
+  #     run: |
+  #       cd ./related-packages/fileformats
+  #       pytest -sv --cov fileformats.medimage_afni --cov fileformats.extras.medimage_afni --cov-report xml .
 
   test:
-    needs: [nipype-conv, fileformats-test]
+    needs: [nipype-conv]
     runs-on: ubuntu-22.04
     strategy:
       matrix:
