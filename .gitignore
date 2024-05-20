@@ -138,6 +138,5 @@ dmypy.json
 .DS_store
 
 /pydra/tasks/afni/auto
-/pydra/tasks/afni/nipype_ports
 /pydra/tasks/afni/_version.py
 /related-packages/**/_version.py

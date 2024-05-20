@@ -1,6 +1,6 @@
-===============================
+===========================
 Pydra task package for afni
-===============================
+===========================
 
 .. image:: https://github.com/nipype/pydra-afni/actions/workflows/pythonpackage.yaml/badge.svg
    :target: https://github.com/nipype/pydra-afni/actions/workflows/pythonpackage.yaml
@@ -78,7 +78,7 @@ ensure consistent code-style and quality.
 .. code-block::
 
    $ pip install -e .[test,dev]
-$ pre-commit install
+   $ pre-commit install
 
 Next install the requirements for running the auto-conversion script and generate the
 Pydra task interfaces from their Nipype counterparts
