@@ -1,5 +1,5 @@
 import pytest
-from fileformats.medimage_anfi import (
+from fileformats.medimage_afni import (
     OneD,
     Dset,
     ThreeD,
