@@ -1,6 +1,6 @@
-===============================
+===========================
 Pydra task package for afni
-===============================
+===========================
 
 .. image:: https://github.com/nipype/pydra-afni/actions/workflows/pythonpackage.yaml/badge.svg
    :target: https://github.com/nipype/pydra-afni/actions/workflows/pythonpackage.yaml
