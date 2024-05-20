@@ -107,7 +107,7 @@ jobs:
         python -c "import fileformats.medimage_afni as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
     - name: Test fileformats with pytest
       run: >-
-        pytest ./related-packages/fileformats -sv --cov fileformats.medimage_afni
+        pytest ./related-packages -sv --cov fileformats.medimage_afni
         --cov fileformats.extras.medimage_afni --cov-report xml .
 
   test:
@@ -150,8 +150,7 @@ jobs:
         python -c "import pydra as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
     - name: Test with pytest
       run: |
-        pytest -sv --doctest-modules ./pydra/tasks/afni \
-            --cov pydra.tasks.afni --cov-report xml
+        pytest -sv ./pydra/tasks/afni --cov pydra.tasks.afni --cov-report xml
     - uses: codecov/codecov-action@v3
       if: ${{ always() }}
       with:
