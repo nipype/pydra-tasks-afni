@@ -2,10 +2,10 @@
 Pydra task package for afni
 ===========================
 
-.. image:: https://github.com/nipype/pydra-afni/actions/workflows/pythonpackage.yaml/badge.svg
-   :target: https://github.com/nipype/pydra-afni/actions/workflows/pythonpackage.yaml
-.. .. image:: https://codecov.io/gh/nipype/pydra-afni/branch/main/graph/badge.svg?token=UIS0OGPST7
-..    :target: https://codecov.io/gh/nipype/pydra-afni
+.. image:: https://github.com/nipype/pydra-afni/actions/workflows/ci-cd.yaml/badge.svg
+   :target: https://github.com/nipype/pydra-afni/actions/workflows/ci-cd.yaml
+.. image:: https://codecov.io/gh/nipype/pydra-afni/branch/main/graph/badge.svg?token=UIS0OGPST7
+   :target: https://codecov.io/gh/nipype/pydra-afni
 .. image:: https://img.shields.io/pypi/pyversions/pydra-afni.svg
    :target: https://pypi.python.org/pypi/pydra-afni/
    :alt: Supported Python versions
