@@ -76,10 +76,12 @@ jobs:
       with:
         name: converted-nipype
         path: pydra/tasks/afni/auto
+
     - name: Strip auto package from gitignore so it is included in package
       run: |
         sed -i '/\/pydra\/tasks\/afni\/auto/d' .gitignore
-        sed -i '/^_version.py/d' .gitignore
+        sed -i '/^_version.py/d' .gitignore         
+
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v5
       with:
@@ -251,53 +253,152 @@ jobs:
     needs: [deploy-fileformats-extras]
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+
+    - name: Checkout repository
+      uses: actions/checkout@v4
       with:
         submodules: recursive
         fetch-depth: 0
-    - name: Download tasks converted from Nipype 
+
+    - name: Set up Git user
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+
+    - name: Get latest version tag
+      id: latest_tag
+      run: |
+        git fetch --tags
+        echo "TAG=$(git tag -l | grep 'v.*' | tail -n 1 | awk -F post '{print $1}')" >> $GITHUB_OUTPUT
+
+    - name: Revert to latest tag
+      if: github.event_name == 'repository_dispatch'
+      run: git checkout ${{ steps.latest_tag.outputs.TAG }}
+
+    - name: Download tasks converted from Nipype
       uses: actions/download-artifact@v4
       with:
         name: converted-nipype
         path: pydra/tasks/afni/auto
-    - name: Tag release with a post-release based on Nipype and Nipype2Pydra versions
-      if: github.event_name == 'repository_dispatch'
-      run: |
-        TAG=$(git tag -l | tail -n 1 | awk -F post '{print $1}')
-        POST=$(python -c "from pydra.tasks.afni.auto._post_release import *; print(post_release)")
-        git checkout $TAG
-        git add -f pydra/tasks/afni/auto/_version.py
-        git commit -am"added auto-generated version to make new tag for package version"
-        git tag ${TAG}post${POST}    
+
+    - name: Show the contents of the auto-generated tasks
+      run: tree pydra 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.11'
+
     - name: Install build tools
       run: python -m pip install build twine
+
     - name: Strip auto package from gitignore so it is included in package
       run: |
         sed -i '/\/pydra\/tasks\/afni\/auto/d' .gitignore
+        cat .gitignore
+
+    - name: Install task package to calculate post-release tag
+      run: |
+        pip install ".[test]"
+
+    - name: Generate post-release tag based on Nipype and Nipype2Pydra versions
+      id: post_release_tag
+      run: |
+        POST=$(python -c "from pydra.tasks.afni.auto._post_release import *; print(post_release)")
+        echo "TAG=${{ steps.latest_tag.outputs.TAG }}post${POST}" >> $GITHUB_OUTPUT
+
+    - name: Add auto directory to git repo
+      if: github.event_name == 'release' || github.event_name == 'repository_dispatch'
+      run: |
+        git add pydra/tasks/afni/auto
+        git commit -am"added auto-generated version to make new tag for package version"
+        git status
+
+    - name: Overwrite the tag of release event with latest commit (i.e. including the auto directory)
+      if: github.event_name == 'release'
+      run: |
+        git tag -d ${{ steps.latest_tag.outputs.TAG }};
+        git tag ${{ steps.latest_tag.outputs.TAG }};
+
+    - name: Tag repo with the post-release
+      if: github.event_name == 'repository_dispatch'
+      run: git tag ${{ steps.post_release_tag.outputs.TAG }}
+
     - name: Build source and wheel distributions
       run: python -m build .
+
     - name: Check distributions
       run: twine check dist/*
+
     - uses: actions/upload-artifact@v4
       with:
         name: distributions
         path: dist/
+
     - name: Check for PyPI token on tag
       id: deployable
       if: github.event_name == 'release'
       env:
         PYPI_API_TOKEN: "${{ secrets.PYPI_API_TOKEN }}"
       run: if [ -n "$PYPI_API_TOKEN" ]; then echo "DEPLOY=true" >> $GITHUB_OUTPUT; fi
+
     - name: Upload to PyPI
       if: steps.deployable.outputs.DEPLOY
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
         user: __token__
-        password: ${{ secrets.PYPI_API_TOKEN }}   
+        password: ${{ secrets.PYPI_API_TOKEN }}
+
+    - name: Create post-release release for releases triggered by nipype2pydra dispatches
+      if: steps.deployable.outputs.DEPLOY && github.event_name == 'repository_dispatch'
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      with:
+        tag_name: ${{ steps.post_release_tag.outputs.TAG }}
+        release_name: Release ${{ steps.post_release_tag.outputs.TAG }}
+        draft: false
+        prerelease: false
+
+  # docs:
+  #   needs: deploy
+  #   environment:
+  #     name: github-pages
+  #     url: ${{ steps.deployment.outputs.page_url }}
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: actions/setup-python@v5
+  #       with:
+  #         python-version: '3.x'
+
+  #     - name: Download tasks converted from Nipype
+  #       uses: actions/download-artifact@v4
+  #       with:
+  #         name: converted-nipype
+  #         path: pydra/tasks/freesurfer/auto
+
+  #     - name: Install dependencies
+  #       run: python -m pip install related-packages/fileformats .[doc]
+
+  #     - name: Build docs
+  #       run: |
+  #         pushd docs
+  #         make html
+  #         popd
+
+  #     - name: Upload artifact
+  #       uses: actions/upload-pages-artifact@v3
+  #       with:
+  #         path: 'docs/build/html'
+
+  #     - name: Setup GitHub Pages
+  #       if: github.event_name == 'release' || github.event_name == 'repository_dispatch'
+  #       uses: actions/configure-pages@v4
+
+  #     - name: Deploy to GitHub Pages
+  #       if: github.event_name == 'release' || github.event_name == 'repository_dispatch'
+  #       id: deployment
+  #       uses: actions/deploy-pages@v4
 
 # Deploy on tags if PYPI_API_TOKEN is defined in the repository secrets.
 # Secrets are not accessible in the if: condition [0], so set an output variable [1]
