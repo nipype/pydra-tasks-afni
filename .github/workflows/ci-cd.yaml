@@ -66,20 +66,41 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
-
-    - name: Revert version to most recent version tag on Nipype or Nipype2Pydra update
-      if: github.event_name == 'repository_dispatch'
-      run: git checkout $(git tag -l | grep 'v.*' | tail -n 1 | awk -F post '{print $1}')
-
+      
     - name: Download tasks converted from Nipype
       uses: actions/download-artifact@v4
       with:
         name: converted-nipype
         path: pydra/tasks/afni/auto
+
     - name: Strip auto package from gitignore so it is included in package
       run: |
         sed -i '/\/pydra\/tasks\/afni\/auto/d' .gitignore
-        sed -i '/^_version.py/d' .gitignore
+        sed -i '/^_version.py/d' .gitignore         
+
+    - name: Generate post-release tag based on Nipype and Nipype2Pydra versions
+      id: post_release_tag
+      run: |
+        POST=$(python -c "from pydra.tasks.afni.auto._post_release import *; print(post_release)")
+        echo "TAG=${{ steps.latest_tag.outputs.TAG }}post${POST}" >> $GITHUB_OUTPUT
+
+    - name: Add auto directory to git repo
+      if: github.event_name == 'release' || github.event_name == 'repository_dispatch'
+      run: |
+        git add pydra/tasks/afni/auto
+        git commit -am"added auto-generated version to make new tag for package version"
+        git status
+
+    - name: Overwrite the tag of release event with latest commit (i.e. including the auto directory)
+      if: github.event_name == 'release'
+      run: |
+        git tag -d ${{ steps.latest_tag.outputs.TAG }};
+        git tag ${{ steps.latest_tag.outputs.TAG }};
+
+    - name: Tag repo with the post-release
+      if: github.event_name == 'repository_dispatch'
+      run: git tag ${{ steps.post_release_tag.outputs.TAG }}
+
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v5
       with:
