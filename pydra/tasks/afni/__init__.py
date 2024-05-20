@@ -5,6 +5,7 @@ imported.
 >>> import pydra.engine
 >>> import pydra.tasks.afni
 """
+
 from warnings import warn
 from pathlib import Path
 
@@ -20,8 +21,7 @@ except ImportError:
 if "nipype" not in __version__:
     try:
         from .auto._post_release import src_pkg_version, nipype2pydra_version
-    except ImportError as e:
-        raise e
+    except ImportError:
         warn(
             "Nipype interfaces haven't been automatically converted from their specs in "
             f"`nipype-auto-conv`. Please run `{str(pkg_path / 'nipype-auto-conv' / 'generate')}` "
