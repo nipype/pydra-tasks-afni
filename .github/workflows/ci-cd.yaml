@@ -80,6 +80,7 @@ jobs:
         pip install "./related-packages/fileformats[dev]" "related-packages/fileformats-extras[dev]"
         pip install ${{ matrix.pip-flags }} ".[dev]"
         python -c "import pydra.tasks.afni as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
+        python -c "import pydra.tasks.afni.auto as m; print(f'{m.__name__} @ {m.__file__}')"
         python -c "import pydra as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
         python -c "import fileformats.medimage_afni as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
         python -c "import fileformats.extras.medimage_afni as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
@@ -147,6 +148,7 @@ jobs:
       run: |
         pip install "./related-packages/fileformats" "./related-packages/fileformats-extras" ".[test]"
         python -c "import pydra.tasks.afni as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
+        python -c "import pydra.tasks.afni.auto as m; print(f'{m.__name__} @ {m.__file__}')"
         python -c "import pydra as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
     - name: Test with pytest
       run: |
