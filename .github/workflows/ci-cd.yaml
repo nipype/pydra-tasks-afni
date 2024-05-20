@@ -43,7 +43,7 @@ jobs:
       run: python -m pip install --upgrade pip
 
     - name: Install requirements
-      run: python -m pip install -r ./nipype-auto-conv/requirements.txt
+      run: python -m pip install -r ./nipype-auto-conv/requirements.txt ./related-packages/fileformats
 
     - name: Run automatic Nipype > Pydra conversion
       run: ./nipype-auto-conv/generate
