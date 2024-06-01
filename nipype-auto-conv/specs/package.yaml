@@ -6,3 +6,13 @@ nipype_name: nipype.interfaces.afni
 config_params: null
 # Mappings between nipype packages and their pydra equivalents. Regular expressions are supported
 import_translations: null
+find_replace:
+  - [
+      "list\\(self\\.inputs\\.traits\\(\\*\\*metadata\\)\\.keys\\(\\)\\)",
+      "list(inputs)",
+    ]
+  - ["\\s+metadata = dict\\(name_source=lambda t: t is not None\\)", ""]
+  - ["\\s+config = NipypeConfig\\(\\)", ""]
+  - ["\\slogging = Logging\\(config\\)", ""]
+import_find_replace:
+  - ["\\s+config,(\\s+)fname_presuffix,", "\\1fname_presuffix,"]
