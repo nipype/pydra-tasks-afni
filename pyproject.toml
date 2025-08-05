@@ -92,7 +92,7 @@ python = ["3.11", "3.12", "3.13"]
 
 [tool.pytest.ini_options]
 minversion = "6.0"
-testpaths = ["pydra/tasks/ants"]
+testpaths = ["pydra/tasks/afni"]
 log_cli_level = "INFO"
 xfail_strict = true
 addopts = [
@@ -102,7 +102,7 @@ addopts = [
   "--strict-markers",
   # "--doctest-modules",
   # "--doctest-continue-on-failure",
-  "--cov=pydra.tasks.ants",
+  "--cov=pydra.tasks.afni",
   "--cov-report=xml",
   "--cov-config=pyproject.toml",
 ]
