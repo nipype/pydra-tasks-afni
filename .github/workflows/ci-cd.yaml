@@ -150,7 +150,7 @@ jobs:
         --cov fileformats.extras.medimage_afni --cov-report xml .
 
   deploy-fileformats:
-    needs: [devcheck, test]
+    needs: [test]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
