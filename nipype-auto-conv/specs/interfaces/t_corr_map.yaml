@@ -6,24 +6,24 @@
 # Docs
 # ----
 # For each voxel time series, computes the correlation between it
-#     and all other voxels, and combines this set of values into the
-#     output dataset(s) in some way.
+# and all other voxels, and combines this set of values into the
+# output dataset(s) in some way.
 # 
-#     For complete details, see the `3dTcorrMap Documentation.
-#     <https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dTcorrMap.html>`_
+# For complete details, see the `3dTcorrMap Documentation.
+# <https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dTcorrMap.html>`_
 # 
-#     Examples
-#     --------
-#     >>> from nipype.interfaces import afni
-#     >>> tcm = afni.TCorrMap()
-#     >>> tcm.inputs.in_file = 'functional.nii'
-#     >>> tcm.inputs.mask = 'mask.nii'
-#     >>> tcm.mean_file = 'functional_meancorr.nii'
-#     >>> tcm.cmdline # doctest: +SKIP
-#     '3dTcorrMap -input functional.nii -mask mask.nii -Mean functional_meancorr.nii'
-#     >>> res = tcm.run()  # doctest: +SKIP
+# Examples
+# --------
+# >>> from nipype.interfaces import afni
+# >>> tcm = afni.TCorrMap()
+# >>> tcm.inputs.in_file = 'functional.nii'
+# >>> tcm.inputs.mask = 'mask.nii'
+# >>> tcm.mean_file = 'functional_meancorr.nii'
+# >>> tcm.cmdline # doctest: +SKIP
+# '3dTcorrMap -input functional.nii -mask mask.nii -Mean functional_meancorr.nii'
+# >>> res = tcm.run()  # doctest: +SKIP
 # 
-#     
+# 
 task_name: TCorrMap
 nipype_name: TCorrMap
 nipype_module: nipype.interfaces.afni.preprocess
@@ -40,53 +40,15 @@ inputs:
   # passed to the field in the automatically generated unittests.
     in_file: medimage/nifti1
     # type=file|default=<undefined>: 
-    seeds: generic/file
-    # type=file|default=<undefined>: 
-    mask: medimage/nifti1
+    mask: generic/file
     # type=file|default=<undefined>: 
     regress_out_timeseries: generic/file
     # type=file|default=<undefined>: 
-    mean_file: generic/file
-    # type=file: 
+    seeds: generic/file
     # type=file|default=<undefined>: 
-    zmean: generic/file
-    # type=file: 
-    # type=file|default=<undefined>: 
-    qmean: generic/file
-    # type=file: 
-    # type=file|default=<undefined>: 
-    pmean: generic/file
-    # type=file: 
-    # type=file|default=<undefined>: 
-    absolute_threshold: generic/file
-    # type=file: 
-    # type=file|default=<undefined>: 
-    var_absolute_threshold: generic/file
-    # type=file: 
-    # type=file|default=<undefined>: 
-    var_absolute_threshold_normalize: generic/file
-    # type=file: 
-    # type=file|default=<undefined>: 
-    correlation_maps: generic/file
-    # type=file: 
-    # type=file|default=<undefined>: 
-    correlation_maps_masked: generic/file
-    # type=file: 
-    # type=file|default=<undefined>: 
-    average_expr: generic/file
-    # type=file: 
-    # type=file|default=<undefined>: 
-    average_expr_nonzero: generic/file
-    # type=file: 
-    # type=file|default=<undefined>: 
-    sum_expr: generic/file
-    # type=file: 
-    # type=file|default=<undefined>: 
-    histogram: generic/file
-    # type=file: 
-    # type=file|default=<undefined>: 
-    out_file: generic/file
-    # type=file|default=<undefined>: output image file name
+  callable_defaults:
+  # dict[str, str] - names of methods/callable classes defined in the adjacent `*_callables.py`
+  # to set as the `default` method of input fields
   metadata:
   # dict[str, dict[str, any]] - additional metadata to set on any of the input fields (e.g. out_file: position: 1)
 outputs:
@@ -100,31 +62,7 @@ outputs:
   # from the nipype interface, but you may want to be more specific, particularly
   # for file types, where specifying the format also specifies the file that will be
   # passed to the field in the automatically generated unittests.
-    mean_file: generic/file
-    # type=file: 
-    # type=file|default=<undefined>: 
-    zmean: generic/file
-    # type=file: 
-    # type=file|default=<undefined>: 
-    qmean: generic/file
-    # type=file: 
-    # type=file|default=<undefined>: 
-    pmean: generic/file
-    # type=file: 
-    # type=file|default=<undefined>: 
     absolute_threshold: generic/file
-    # type=file: 
-    # type=file|default=<undefined>: 
-    var_absolute_threshold: generic/file
-    # type=file: 
-    # type=file|default=<undefined>: 
-    var_absolute_threshold_normalize: generic/file
-    # type=file: 
-    # type=file|default=<undefined>: 
-    correlation_maps: generic/file
-    # type=file: 
-    # type=file|default=<undefined>: 
-    correlation_maps_masked: generic/file
     # type=file: 
     # type=file|default=<undefined>: 
     average_expr: generic/file
@@ -133,17 +71,41 @@ outputs:
     average_expr_nonzero: generic/file
     # type=file: 
     # type=file|default=<undefined>: 
-    sum_expr: generic/file
+    correlation_maps: generic/file
+    # type=file: 
+    # type=file|default=<undefined>: 
+    correlation_maps_masked: generic/file
     # type=file: 
     # type=file|default=<undefined>: 
     histogram: generic/file
+    # type=file: 
+    # type=file|default=<undefined>: 
+    mean_file: generic/file
+    # type=file: 
+    # type=file|default=<undefined>: 
+    pmean: generic/file
+    # type=file: 
+    # type=file|default=<undefined>: 
+    qmean: generic/file
+    # type=file: 
+    # type=file|default=<undefined>: 
+    sum_expr: generic/file
+    # type=file: 
+    # type=file|default=<undefined>: 
+    var_absolute_threshold: generic/file
+    # type=file: 
+    # type=file|default=<undefined>: 
+    var_absolute_threshold_normalize: generic/file
+    # type=file: 
+    # type=file|default=<undefined>: 
+    zmean: generic/file
     # type=file: 
     # type=file|default=<undefined>: 
   callables:
   # dict[str, str] - names of methods/callable classes defined in the adjacent `*_callables.py`
   # to set to the `callable` attribute of output fields
   templates:
-  # dict[str, str] - `output_file_template` values to be provided to output fields
+  # dict[str, str] - `path_template` values to be provided to output fields
   requirements:
   # dict[str, list[str]] - input fields that are required to be provided for the output field to be present
 tests:
@@ -161,7 +123,7 @@ tests:
     polort:
     # type=int|default=0: 
     bandpass:
-    # type=tuple|default=(<traits.trait_types.Float object at 0x11228fdf0>, <traits.trait_types.Float object at 0x11228fe50>): 
+    # type=tuple|default=None: 
     regress_out_timeseries:
     # type=file|default=<undefined>: 
     blur_fwhm:
@@ -224,7 +186,7 @@ tests:
     environ:
     # type=dict|default={}: Environment variables
   imports:
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.statements.imports.explicitimport] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   expected_outputs:
   # dict[str, str] - expected values for selected outputs, noting that tests will typically
@@ -243,10 +205,8 @@ tests:
   # (if not specified, will try to choose a sensible value)
     in_file:
     # type=file|default=<undefined>: 
-    mask:
-    # type=file|default=<undefined>: 
   imports:
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.statements.imports.explicitimport] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   expected_outputs:
   # dict[str, str] - expected values for selected outputs, noting that tests will typically
@@ -261,18 +221,16 @@ tests:
   # bool - whether the unittest is expected to fail or not. Set to false
   # when you are satisfied with the edits you have made to this file
 doctests:
-- cmdline: 3dTcorrMap -input functional.nii -mask mask.nii -Mean functional_meancorr.nii
+- cmdline:
   # str - the expected cmdline output
   inputs:
   # dict[str, str] - name-value pairs for inputs to be provided to the doctest.
   # If the field is of file-format type and the value is None, then the
   # '.mock()' method of the corresponding class is used instead.
-    in_file:
-    # type=file|default=<undefined>: 
-    mask:
+    in_file: '"functional.nii"'
     # type=file|default=<undefined>: 
   imports:
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.statements.imports.explicitimport] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   directive:
   # str - any doctest directive to place on the cmdline call, e.g. # doctest: +ELLIPSIS

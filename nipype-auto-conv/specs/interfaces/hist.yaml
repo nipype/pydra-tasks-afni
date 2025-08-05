@@ -6,21 +6,21 @@
 # Docs
 # ----
 # Computes average of all voxels in the input dataset
-#     which satisfy the criterion in the options list
+# which satisfy the criterion in the options list
 # 
-#     For complete details, see the `3dHist Documentation.
-#     <https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dHist.html>`_
+# For complete details, see the `3dHist Documentation.
+# <https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dHist.html>`_
 # 
-#     Examples
-#     --------
-#     >>> from nipype.interfaces import afni
-#     >>> hist = afni.Hist()
-#     >>> hist.inputs.in_file = 'functional.nii'
-#     >>> hist.cmdline
-#     '3dHist -input functional.nii -prefix functional_hist'
-#     >>> res = hist.run()  # doctest: +SKIP
+# Examples
+# --------
+# >>> from nipype.interfaces import afni
+# >>> hist = afni.Hist()
+# >>> hist.inputs.in_file = 'functional.nii'
+# >>> hist.cmdline
+# '3dHist -input functional.nii -prefix functional_hist'
+# >>> res = hist.run()  # doctest: +SKIP
 # 
-#     
+# 
 task_name: Hist
 nipype_name: Hist
 nipype_module: nipype.interfaces.afni.preprocess
@@ -37,14 +37,11 @@ inputs:
   # passed to the field in the automatically generated unittests.
     in_file: medimage/nifti1
     # type=file|default=<undefined>: input file to 3dHist
-    out_file: generic/file
-    # type=file: output file
-    # type=file|default=<undefined>: Write histogram to niml file with this prefix
-    out_show: generic/file
-    # type=file: output visual histogram
-    # type=file|default=<undefined>: output image file name
     mask: generic/file
     # type=file|default=<undefined>: matrix to align input file
+  callable_defaults:
+  # dict[str, str] - names of methods/callable classes defined in the adjacent `*_callables.py`
+  # to set as the `default` method of input fields
   metadata:
   # dict[str, dict[str, any]] - additional metadata to set on any of the input fields (e.g. out_file: position: 1)
 outputs:
@@ -68,7 +65,7 @@ outputs:
   # dict[str, str] - names of methods/callable classes defined in the adjacent `*_callables.py`
   # to set to the `callable` attribute of output fields
   templates:
-  # dict[str, str] - `output_file_template` values to be provided to output fields
+  # dict[str, str] - `path_template` values to be provided to output fields
   requirements:
   # dict[str, list[str]] - input fields that are required to be provided for the output field to be present
 tests:
@@ -100,7 +97,7 @@ tests:
     environ:
     # type=dict|default={}: Environment variables
   imports:
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.statements.imports.explicitimport] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   expected_outputs:
   # dict[str, str] - expected values for selected outputs, noting that tests will typically
@@ -120,7 +117,7 @@ tests:
     in_file:
     # type=file|default=<undefined>: input file to 3dHist
   imports:
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.statements.imports.explicitimport] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   expected_outputs:
   # dict[str, str] - expected values for selected outputs, noting that tests will typically
@@ -135,16 +132,16 @@ tests:
   # bool - whether the unittest is expected to fail or not. Set to false
   # when you are satisfied with the edits you have made to this file
 doctests:
-- cmdline: 3dHist -input functional.nii -prefix functional_hist
+- cmdline:
   # str - the expected cmdline output
   inputs:
   # dict[str, str] - name-value pairs for inputs to be provided to the doctest.
   # If the field is of file-format type and the value is None, then the
   # '.mock()' method of the corresponding class is used instead.
-    in_file:
+    in_file: '"functional.nii"'
     # type=file|default=<undefined>: input file to 3dHist
   imports:
-  # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item
+  # list[nipype2pydra.statements.imports.explicitimport] - list import statements required by the test, with each list item
   # consisting of 'module', 'name', and optionally 'alias' keys
   directive:
   # str - any doctest directive to place on the cmdline call, e.g. # doctest: +ELLIPSIS
