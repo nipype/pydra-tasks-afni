@@ -56,7 +56,7 @@ class NwarpAdjust(shell.Task["NwarpAdjust.Outputs"]):
     outputtype: ty.Any = shell.arg(help="AFNI output filetype")
 
     class Outputs(shell.Outputs):
-        out_file: Path = shell.outarg(
+        out_file: File | None = shell.outarg(
             help="Output mean dataset, only needed if in_files are also given. The output dataset will be on the common grid shared by the source datasets.",
             argstr="-prefix {out_file}",
             requires=["in_files"],

@@ -184,7 +184,7 @@ tests:
     # type=bool|default=False: if in_file has more than one sub-brick, compute the final estimate as the geometric mean of the individual sub-brick FWHM estimates
     arith:
     # type=bool|default=False: if in_file has more than one sub-brick, compute the final estimate as the arithmetic mean of the individual sub-brick FWHM estimates
-    combine:
+    combine_:
     # type=bool|default=False: combine the final measurements along each axis
     compat:
     # type=bool|default=False: be compatible with the older 3dFWHM

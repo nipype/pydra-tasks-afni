@@ -168,7 +168,7 @@ class FWHMx(shell.Task["FWHMx.Outputs"]):
         help="if in_file has more than one sub-brick, compute the final estimate as the arithmetic mean of the individual sub-brick FWHM estimates",
         argstr="-arith",
     )
-    combine: bool = shell.arg(
+    combine_: bool = shell.arg(
         help="combine the final measurements along each axis", argstr="-combine"
     )
     compat: bool = shell.arg(

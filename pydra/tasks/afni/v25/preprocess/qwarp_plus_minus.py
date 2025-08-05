@@ -163,7 +163,7 @@ def _gen_filename(name, inputs):
         ["duplo", "allsave", "iwarp", "plusminus"],
         ["duplo", "gridlist", "plusminus"],
         ["plusminus", "gridlist", "allsave", "iniwarp", "duplo", "maxlev", "inilev"],
-        ["workhard", "baxopt", "ballopt"],
+        ["workhard", "boxopt", "ballopt"],
         ["allsave", "expad", "nopadWARP"],
         ["wball", "wmask"],
         ["quiet", "verb"],
@@ -358,7 +358,7 @@ class QwarpPlusMinus(shell.Task["QwarpPlusMinus.Outputs"]):
         help="Normally, the incremental warp parameters are optimized insidea rectangular 'box' (24 dimensional for cubic patches, 81 forquintic patches), whose limits define the amount of distortionallowed at each step.  Using '-ballopt' switches these limitsto be applied to a 'ball' (interior of a hypersphere), whichcan allow for larger incremental displacements.  Use thisoption if you think things need to be able to move farther.",
         argstr="-ballopt",
     )
-    baxopt: bool = shell.arg(
+    boxopt: bool = shell.arg(
         help="Use the 'box' optimization limits instead of the 'ball'[this is the default at present].Note that if '-workhard' is used, then ball and box optimizationare alternated in the different iterations at each level, sothese two options have no effect in that case.",
         argstr="-boxopt",
     )
