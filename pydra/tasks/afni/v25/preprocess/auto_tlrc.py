@@ -2,7 +2,7 @@ import attrs
 from fileformats.generic import File
 from fileformats.medimage import Nifti1
 import logging
-from pydra.tasks.afni.v25_2_06.nipype_ports.utils.filemanip import fname_presuffix
+from pydra.tasks.afni.v25.nipype_ports.utils.filemanip import fname_presuffix
 import os
 from pydra.compose import shell
 import typing as ty
@@ -46,7 +46,7 @@ class AutoTLRC(shell.Task["AutoTLRC.Outputs"]):
 
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
-    >>> from pydra.tasks.afni.v25_2_06.preprocess.auto_tlrc import AutoTLRC
+    >>> from pydra.tasks.afni.v25.preprocess.auto_tlrc import AutoTLRC
 
     >>> task = AutoTLRC()
     >>> task.inputs.in_file = Nifti1.mock("structural.nii")

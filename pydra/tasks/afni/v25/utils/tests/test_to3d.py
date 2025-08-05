@@ -1,7 +1,7 @@
 from fileformats.generic import Directory
 import logging
 from nipype2pydra.testing import PassAfterTimeoutWorker
-from pydra.tasks.afni.v25_2_06.utils.to_3d import To3D
+from pydra.tasks.afni.v25.utils.to_3d import To3D
 import pytest
 
 

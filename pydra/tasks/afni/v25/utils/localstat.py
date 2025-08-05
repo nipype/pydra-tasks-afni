@@ -63,7 +63,7 @@ class Localstat(shell.Task["Localstat.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.localstat import Localstat
+    >>> from pydra.tasks.afni.v25.utils.localstat import Localstat
     >>> from pydra.utils.typing import MultiInputObj
 
     >>> task = Localstat()

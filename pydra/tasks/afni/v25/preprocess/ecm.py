@@ -19,7 +19,7 @@ class ECM(shell.Task["ECM.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.preprocess.ecm import ECM
+    >>> from pydra.tasks.afni.v25.preprocess.ecm import ECM
 
     >>> task = ECM()
     >>> task.inputs.in_file = Nifti1.mock("functional.nii")

@@ -2,7 +2,7 @@ import attrs
 from fileformats.generic import File
 from fileformats.medimage import Nifti1
 import logging
-from pydra.tasks.afni.v25_2_06.nipype_ports.utils.filemanip import load_json, save_json
+from pydra.tasks.afni.v25.nipype_ports.utils.filemanip import load_json, save_json
 import os
 from pydra.compose import shell
 import typing as ty
@@ -57,7 +57,7 @@ class BrickStat(shell.Task["BrickStat.Outputs"]):
 
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
-    >>> from pydra.tasks.afni.v25_2_06.utils.brick_stat import BrickStat
+    >>> from pydra.tasks.afni.v25.utils.brick_stat import BrickStat
 
     >>> task = BrickStat()
     >>> task.inputs.in_file = Nifti1.mock("functional.nii")

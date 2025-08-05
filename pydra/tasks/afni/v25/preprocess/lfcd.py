@@ -19,7 +19,7 @@ class LFCD(shell.Task["LFCD.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.preprocess.lfcd import LFCD
+    >>> from pydra.tasks.afni.v25.preprocess.lfcd import LFCD
 
     >>> task = LFCD()
     >>> task.inputs.in_file = Nifti1.mock("functional.nii")

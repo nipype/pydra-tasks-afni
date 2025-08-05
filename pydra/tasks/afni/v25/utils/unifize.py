@@ -2,7 +2,7 @@ import attrs
 from fileformats.generic import File
 from fileformats.medimage import Nifti1
 import logging
-from pydra.tasks.afni.v25_2_06.nipype_ports.utils.filemanip import split_filename
+from pydra.tasks.afni.v25.nipype_ports.utils.filemanip import split_filename
 from pathlib import Path
 from pathlib._local import Path
 from pydra.compose import shell
@@ -44,7 +44,7 @@ class Unifize(shell.Task["Unifize.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.unifize import Unifize
+    >>> from pydra.tasks.afni.v25.utils.unifize import Unifize
 
     >>> task = Unifize()
     >>> task.inputs.in_file = Nifti1.mock("structural.nii")

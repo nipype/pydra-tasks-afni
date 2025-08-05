@@ -2,7 +2,7 @@ import attrs
 from fileformats.generic import File
 from fileformats.medimage import Nifti1
 import logging
-from pydra.tasks.afni.v25_2_06.nipype_ports.utils.filemanip import split_filename
+from pydra.tasks.afni.v25.nipype_ports.utils.filemanip import split_filename
 import os
 from pathlib import Path
 from pathlib._local import Path
@@ -78,7 +78,7 @@ class TShift(shell.Task["TShift.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.preprocess.t_shift import TShift
+    >>> from pydra.tasks.afni.v25.preprocess.t_shift import TShift
 
     >>> task = TShift()
     >>> task.inputs.in_file = Nifti1.mock("functional.nii")

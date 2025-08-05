@@ -2,7 +2,7 @@ import attrs
 from fileformats.generic import File
 from fileformats.medimage import Nifti1
 import logging
-from pydra.tasks.afni.v25_2_06.nipype_ports.utils.filemanip import split_filename
+from pydra.tasks.afni.v25.nipype_ports.utils.filemanip import split_filename
 from pathlib import Path
 from pathlib._local import Path
 from pydra.compose import shell
@@ -160,7 +160,7 @@ class TCorrMap(shell.Task["TCorrMap.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.preprocess.t_corr_map import TCorrMap
+    >>> from pydra.tasks.afni.v25.preprocess.t_corr_map import TCorrMap
 
     >>> task = TCorrMap()
     >>> task.inputs.in_file = Nifti1.mock("functional.nii")

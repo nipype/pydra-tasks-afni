@@ -17,7 +17,7 @@ class SVMTest(shell.Task["SVMTest.Outputs"]):
 
     >>> from fileformats.generic import File
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.svm.svm_test import SVMTest
+    >>> from pydra.tasks.afni.v25.svm.svm_test import SVMTest
 
     """
 

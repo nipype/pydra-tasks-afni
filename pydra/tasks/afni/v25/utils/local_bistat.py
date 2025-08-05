@@ -39,7 +39,7 @@ class LocalBistat(shell.Task["LocalBistat.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.local_bistat import LocalBistat
+    >>> from pydra.tasks.afni.v25.utils.local_bistat import LocalBistat
     >>> from pydra.utils.typing import MultiInputObj
 
     >>> task = LocalBistat()

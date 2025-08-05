@@ -140,7 +140,7 @@ class Remlfit(shell.Task["Remlfit.Outputs"]):
     >>> from fileformats.medimage import Nifti1
     >>> from fileformats.medimage_afni import OneD
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.model.remlfit import Remlfit
+    >>> from pydra.tasks.afni.v25.model.remlfit import Remlfit
 
     >>> task = Remlfit()
     >>> task.inputs.in_files = [Nifti1.mock("functional.nii"), Nifti1.mock("functional2.nii")]

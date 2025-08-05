@@ -2,8 +2,8 @@ import attrs
 from fileformats.generic import File
 from fileformats.medimage import Nifti1, NiftiGz
 import logging
-from pydra.tasks.afni.v25_2_06.base import Info
-from pydra.tasks.afni.v25_2_06.nipype_ports.utils.filemanip import fname_presuffix
+from pydra.tasks.afni.v25.base import Info
+from pydra.tasks.afni.v25.nipype_ports.utils.filemanip import fname_presuffix
 import os
 from pathlib import Path
 from pathlib._local import Path
@@ -186,7 +186,7 @@ class Qwarp(shell.Task["Qwarp.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1, NiftiGz
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.preprocess.qwarp import Qwarp
+    >>> from pydra.tasks.afni.v25.preprocess.qwarp import Qwarp
 
     >>> task = Qwarp()
     >>> task.inputs.in_file = "sub-01_dir-LR_epi.nii.gz"

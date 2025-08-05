@@ -17,7 +17,7 @@ class NwarpApply(shell.Task["NwarpApply.Outputs"]):
 
     >>> from fileformats.generic import File
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.nwarp_apply import NwarpApply
+    >>> from pydra.tasks.afni.v25.utils.nwarp_apply import NwarpApply
 
     >>> task = NwarpApply()
     >>> task.inputs.in_file = "Fred+orig"

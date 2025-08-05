@@ -19,7 +19,7 @@ class Bandpass(shell.Task["Bandpass.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.preprocess.bandpass import Bandpass
+    >>> from pydra.tasks.afni.v25.preprocess.bandpass import Bandpass
 
     >>> task = Bandpass()
     >>> task.inputs.in_file = Nifti1.mock("functional.nii")

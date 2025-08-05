@@ -17,7 +17,7 @@ class TCat(shell.Task["TCat.Outputs"]):
 
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.t_cat import TCat
+    >>> from pydra.tasks.afni.v25.utils.t_cat import TCat
 
     >>> task = TCat()
     >>> task.inputs.in_files = [Nifti1.mock("functional.nii"), Nifti1.mock("functional2.nii")]

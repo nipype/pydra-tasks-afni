@@ -47,7 +47,7 @@ class CenterMass(shell.Task["CenterMass.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.center_mass import CenterMass
+    >>> from pydra.tasks.afni.v25.utils.center_mass import CenterMass
 
     >>> task = CenterMass()
     >>> task.inputs.in_file = Nifti1.mock("structural.nii")

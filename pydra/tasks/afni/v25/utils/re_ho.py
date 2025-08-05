@@ -51,7 +51,7 @@ class ReHo(shell.Task["ReHo.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.re_ho import ReHo
+    >>> from pydra.tasks.afni.v25.utils.re_ho import ReHo
 
     >>> task = ReHo()
     >>> task.inputs.in_file = Nifti1.mock("functional.nii")

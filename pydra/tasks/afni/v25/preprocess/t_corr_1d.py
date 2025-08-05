@@ -19,7 +19,7 @@ class TCorr1D(shell.Task["TCorr1D.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.preprocess.t_corr_1d import TCorr1D
+    >>> from pydra.tasks.afni.v25.preprocess.t_corr_1d import TCorr1D
 
     >>> task = TCorr1D()
     >>> task.inputs.xset = Nifti1.mock("u_rc1s1_Template.nii")

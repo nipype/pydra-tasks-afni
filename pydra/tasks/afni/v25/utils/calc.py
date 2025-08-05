@@ -39,7 +39,7 @@ class Calc(shell.Task["Calc.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.calc import Calc
+    >>> from pydra.tasks.afni.v25.utils.calc import Calc
 
     >>> task = Calc()
     >>> task.inputs.in_file_a = Nifti1.mock("functional.nii")

@@ -17,7 +17,7 @@ class Automask(shell.Task["Automask.Outputs"]):
 
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.preprocess.automask import Automask
+    >>> from pydra.tasks.afni.v25.preprocess.automask import Automask
 
     >>> task = Automask()
     >>> task.inputs.in_file = Nifti1.mock("functional.nii")

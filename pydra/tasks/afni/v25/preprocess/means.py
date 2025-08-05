@@ -19,7 +19,7 @@ class Means(shell.Task["Means.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.preprocess.means import Means
+    >>> from pydra.tasks.afni.v25.preprocess.means import Means
 
     >>> task = Means()
     >>> task.inputs.in_file_a = Nifti1.mock("im1.nii")

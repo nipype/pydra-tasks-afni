@@ -3,7 +3,7 @@ from fileformats.generic import File
 from fileformats.medimage import Nifti1
 import logging
 from nipype2pydra.testing import PassAfterTimeoutWorker
-from pydra.tasks.afni.v25_2_06.preprocess.allineate import Allineate
+from pydra.tasks.afni.v25.preprocess.allineate import Allineate
 import pytest
 
 

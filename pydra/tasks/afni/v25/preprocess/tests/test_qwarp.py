@@ -2,7 +2,7 @@ from fileformats.generic import File
 from fileformats.medimage import Nifti1, NiftiGz
 import logging
 from nipype2pydra.testing import PassAfterTimeoutWorker
-from pydra.tasks.afni.v25_2_06.preprocess.qwarp import Qwarp
+from pydra.tasks.afni.v25.preprocess.qwarp import Qwarp
 import pytest
 
 

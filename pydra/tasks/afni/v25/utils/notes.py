@@ -36,7 +36,7 @@ class Notes(shell.Task["Notes.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage_afni import Head
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.notes import Notes
+    >>> from pydra.tasks.afni.v25.utils.notes import Notes
 
     >>> task = Notes()
     >>> task.inputs.in_file = Head.mock("functional.HEAD")

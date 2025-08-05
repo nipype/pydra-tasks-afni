@@ -22,7 +22,7 @@ class AFNItoNIFTI(shell.Task["AFNItoNIFTI.Outputs"]):
 
     >>> from fileformats.medimage_afni import ThreeD
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.afn_ito_nifti import AFNItoNIFTI
+    >>> from pydra.tasks.afni.v25.utils.afn_ito_nifti import AFNItoNIFTI
 
     >>> task = AFNItoNIFTI()
     >>> task.inputs.in_file = ThreeD.mock("afni_output.3D")

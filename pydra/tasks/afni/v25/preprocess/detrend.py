@@ -17,7 +17,7 @@ class Detrend(shell.Task["Detrend.Outputs"]):
 
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.preprocess.detrend import Detrend
+    >>> from pydra.tasks.afni.v25.preprocess.detrend import Detrend
 
     >>> task = Detrend()
     >>> task.inputs.in_file = Nifti1.mock("functional.nii")

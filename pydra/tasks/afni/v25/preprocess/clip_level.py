@@ -2,7 +2,7 @@ import attrs
 from fileformats.generic import File
 from fileformats.medimage import Nifti1
 import logging
-from pydra.tasks.afni.v25_2_06.nipype_ports.utils.filemanip import load_json, save_json
+from pydra.tasks.afni.v25.nipype_ports.utils.filemanip import load_json, save_json
 import os
 from pydra.compose import shell
 
@@ -56,7 +56,7 @@ class ClipLevel(shell.Task["ClipLevel.Outputs"]):
 
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
-    >>> from pydra.tasks.afni.v25_2_06.preprocess.clip_level import ClipLevel
+    >>> from pydra.tasks.afni.v25.preprocess.clip_level import ClipLevel
 
     >>> task = ClipLevel()
     >>> task.inputs.in_file = Nifti1.mock("anatomical.nii")

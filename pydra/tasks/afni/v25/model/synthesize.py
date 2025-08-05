@@ -19,7 +19,7 @@ class Synthesize(shell.Task["Synthesize.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.model.synthesize import Synthesize
+    >>> from pydra.tasks.afni.v25.model.synthesize import Synthesize
 
     >>> task = Synthesize()
     >>> task.inputs.cbucket = Nifti1.mock("functional.nii")

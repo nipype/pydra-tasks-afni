@@ -33,7 +33,7 @@ class Refit(shell.Task["Refit.Outputs"]):
 
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
-    >>> from pydra.tasks.afni.v25_2_06.utils.refit import Refit
+    >>> from pydra.tasks.afni.v25.utils.refit import Refit
 
     >>> task = Refit()
     >>> task.inputs.in_file = Nifti1.mock("structural.nii")

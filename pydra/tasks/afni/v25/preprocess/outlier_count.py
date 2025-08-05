@@ -60,7 +60,7 @@ class OutlierCount(shell.Task["OutlierCount.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.preprocess.outlier_count import OutlierCount
+    >>> from pydra.tasks.afni.v25.preprocess.outlier_count import OutlierCount
 
     >>> task = OutlierCount()
     >>> task.inputs.in_file = Nifti1.mock("functional.nii")

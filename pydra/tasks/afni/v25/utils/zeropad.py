@@ -34,7 +34,7 @@ class Zeropad(shell.Task["Zeropad.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.zeropad import Zeropad
+    >>> from pydra.tasks.afni.v25.utils.zeropad import Zeropad
 
     >>> task = Zeropad()
     >>> task.inputs.in_files = Nifti1.mock("functional.nii")

@@ -3,7 +3,7 @@ from fileformats.generic import File
 from fileformats.medimage import Nifti1
 from fileformats.text import TextFile
 import logging
-from pydra.tasks.afni.v25_2_06.nipype_ports.utils.filemanip import split_filename
+from pydra.tasks.afni.v25.nipype_ports.utils.filemanip import split_filename
 from pathlib import Path
 from pathlib._local import Path
 from pydra.compose import shell
@@ -46,7 +46,7 @@ class ABoverlap(shell.Task["ABoverlap.Outputs"]):
     >>> from fileformats.medimage import Nifti1
     >>> from fileformats.text import TextFile
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.a_boverlap import ABoverlap
+    >>> from pydra.tasks.afni.v25.utils.a_boverlap import ABoverlap
 
     >>> task = ABoverlap()
     >>> task.inputs.in_file_a = Nifti1.mock("functional.nii")

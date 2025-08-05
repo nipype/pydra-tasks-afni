@@ -2,8 +2,8 @@ import attrs
 from fileformats.generic import File
 from fileformats.medimage import NiftiGz
 import logging
-from pydra.tasks.afni.v25_2_06.base import Info
-from pydra.tasks.afni.v25_2_06.nipype_ports.utils.filemanip import fname_presuffix
+from pydra.tasks.afni.v25.base import Info
+from pydra.tasks.afni.v25.nipype_ports.utils.filemanip import fname_presuffix
 import os
 from pathlib import Path
 from pathlib._local import Path
@@ -186,7 +186,7 @@ class QwarpPlusMinus(shell.Task["QwarpPlusMinus.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import NiftiGz
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.preprocess.qwarp_plus_minus import QwarpPlusMinus
+    >>> from pydra.tasks.afni.v25.preprocess.qwarp_plus_minus import QwarpPlusMinus
 
     >>> task = QwarpPlusMinus()
     >>> task.inputs.source_file = File.mock()

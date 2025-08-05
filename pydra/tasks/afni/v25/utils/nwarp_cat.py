@@ -1,5 +1,5 @@
 import logging
-from pydra.tasks.afni.v25_2_06.nipype_ports.utils.filemanip import fname_presuffix
+from pydra.tasks.afni.v25.nipype_ports.utils.filemanip import fname_presuffix
 from pathlib import Path
 from pathlib._local import Path
 from pydra.compose import shell
@@ -46,7 +46,7 @@ class NwarpCat(shell.Task["NwarpCat.Outputs"]):
     -------
 
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.nwarp_cat import NwarpCat
+    >>> from pydra.tasks.afni.v25.utils.nwarp_cat import NwarpCat
 
     >>> task = NwarpCat()
     >>> task.inputs.in_files = ["Q25_warp+tlrc.HEAD", ("IDENT", "structural.nii")]

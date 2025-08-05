@@ -2,7 +2,7 @@ from fileformats.generic import File
 from fileformats.medimage import Nifti1
 import logging
 from nipype2pydra.testing import PassAfterTimeoutWorker
-from pydra.tasks.afni.v25_2_06.utils.center_mass import CenterMass
+from pydra.tasks.afni.v25.utils.center_mass import CenterMass
 import pytest
 
 

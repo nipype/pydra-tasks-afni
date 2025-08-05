@@ -2,8 +2,8 @@ import attrs
 from fileformats.generic import File
 from fileformats.medimage import Nifti1
 import logging
-from pydra.tasks.afni.v25_2_06.base import Info
-from pydra.tasks.afni.v25_2_06.nipype_ports.utils.filemanip import fname_presuffix
+from pydra.tasks.afni.v25.base import Info
+from pydra.tasks.afni.v25.nipype_ports.utils.filemanip import fname_presuffix
 from pydra.compose import shell
 import typing as ty
 
@@ -220,7 +220,7 @@ class AlignEpiAnatPy(shell.Task["AlignEpiAnatPy.Outputs"]):
 
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
-    >>> from pydra.tasks.afni.v25_2_06.preprocess.align_epi_anat_py import AlignEpiAnatPy
+    >>> from pydra.tasks.afni.v25.preprocess.align_epi_anat_py import AlignEpiAnatPy
 
     >>> task = AlignEpiAnatPy()
     >>> task.inputs.in_file = File.mock()

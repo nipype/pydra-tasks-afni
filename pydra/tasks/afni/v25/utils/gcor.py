@@ -29,7 +29,7 @@ class GCOR(shell.Task["GCOR.Outputs"]):
 
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
-    >>> from pydra.tasks.afni.v25_2_06.utils.gcor import GCOR
+    >>> from pydra.tasks.afni.v25.utils.gcor import GCOR
 
     >>> task = GCOR()
     >>> task.inputs.in_file = Nifti1.mock("structural.nii")

@@ -29,7 +29,7 @@ class Bucket(shell.Task["Bucket.Outputs"]):
     -------
 
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.bucket import Bucket
+    >>> from pydra.tasks.afni.v25.utils.bucket import Bucket
 
     >>> task = Bucket()
     >>> task.inputs.in_file = [('functional.nii',"{2..$}"), ('functional.nii',"{1}")]

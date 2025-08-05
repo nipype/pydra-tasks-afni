@@ -2,7 +2,7 @@ import attrs
 from fileformats.generic import File
 from fileformats.medimage import Nifti1
 import logging
-from pydra.tasks.afni.v25_2_06.nipype_ports.utils.filemanip import split_filename
+from pydra.tasks.afni.v25.nipype_ports.utils.filemanip import split_filename
 import os
 from pathlib import Path
 from pathlib._local import Path
@@ -48,7 +48,7 @@ class DegreeCentrality(shell.Task["DegreeCentrality.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.preprocess.degree_centrality import DegreeCentrality
+    >>> from pydra.tasks.afni.v25.preprocess.degree_centrality import DegreeCentrality
 
     >>> task = DegreeCentrality()
     >>> task.inputs.in_file = Nifti1.mock("functional.nii")

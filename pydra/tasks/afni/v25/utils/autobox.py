@@ -79,7 +79,7 @@ class Autobox(shell.Task["Autobox.Outputs"]):
 
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.autobox import Autobox
+    >>> from pydra.tasks.afni.v25.utils.autobox import Autobox
 
     >>> task = Autobox()
     >>> task.inputs.in_file = Nifti1.mock("structural.nii")

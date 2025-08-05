@@ -2,7 +2,7 @@ from fileformats.generic import File
 from fileformats.medimage import Nifti1
 import logging
 from nipype2pydra.testing import PassAfterTimeoutWorker
-from pydra.tasks.afni.v25_2_06.preprocess.blur_to_fwhm import BlurToFWHM
+from pydra.tasks.afni.v25.preprocess.blur_to_fwhm import BlurToFWHM
 import pytest
 
 

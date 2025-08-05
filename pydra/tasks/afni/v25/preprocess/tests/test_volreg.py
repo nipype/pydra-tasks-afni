@@ -1,7 +1,7 @@
 from fileformats.medimage import Nifti1
 import logging
 from nipype2pydra.testing import PassAfterTimeoutWorker
-from pydra.tasks.afni.v25_2_06.preprocess.volreg import Volreg
+from pydra.tasks.afni.v25.preprocess.volreg import Volreg
 import pytest
 
 

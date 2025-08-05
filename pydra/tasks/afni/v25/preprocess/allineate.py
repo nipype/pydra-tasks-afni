@@ -4,7 +4,7 @@ from fileformats.generic import File
 from fileformats.medimage import Nifti1
 from fileformats.text import TextFile
 import logging
-from pydra.tasks.afni.v25_2_06.nipype_ports.utils.filemanip import (
+from pydra.tasks.afni.v25.nipype_ports.utils.filemanip import (
     fname_presuffix,
     split_filename,
 )
@@ -120,7 +120,7 @@ class Allineate(shell.Task["Allineate.Outputs"]):
     >>> from fileformats.medimage import Nifti1
     >>> from fileformats.text import TextFile
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.preprocess.allineate import Allineate
+    >>> from pydra.tasks.afni.v25.preprocess.allineate import Allineate
 
     >>> task = Allineate()
     >>> task.inputs.in_file = Nifti1.mock("functional.nii")

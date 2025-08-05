@@ -19,7 +19,7 @@ class AutoTcorrelate(shell.Task["AutoTcorrelate.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.preprocess.auto_tcorrelate import AutoTcorrelate
+    >>> from pydra.tasks.afni.v25.preprocess.auto_tcorrelate import AutoTcorrelate
 
     >>> task = AutoTcorrelate()
     >>> task.inputs.in_file = Nifti1.mock("functional.nii")

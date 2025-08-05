@@ -1,5 +1,5 @@
 import logging
-from pydra.tasks.afni.v25_2_06.nipype_ports.utils.filemanip import fname_presuffix
+from pydra.tasks.afni.v25.nipype_ports.utils.filemanip import fname_presuffix
 from pathlib import Path
 from pathlib._local import Path
 from pydra.compose import shell
@@ -27,7 +27,7 @@ class TCatSubBrick(shell.Task["TCatSubBrick.Outputs"]):
     -------
 
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.t_cat_sub_brick import TCatSubBrick
+    >>> from pydra.tasks.afni.v25.utils.t_cat_sub_brick import TCatSubBrick
 
     >>> task = TCatSubBrick()
     >>> task.inputs.in_files = [('functional.nii', "'{2..$}'"), ('functional2.nii', "'{2..$}'")]

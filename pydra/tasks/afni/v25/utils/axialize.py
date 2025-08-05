@@ -17,7 +17,7 @@ class Axialize(shell.Task["Axialize.Outputs"]):
 
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.axialize import Axialize
+    >>> from pydra.tasks.afni.v25.utils.axialize import Axialize
 
     >>> task = Axialize()
     >>> task.inputs.in_file = Nifti1.mock("functional.nii")

@@ -36,7 +36,7 @@ class Volreg(shell.Task["Volreg.Outputs"]):
 
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.preprocess.volreg import Volreg
+    >>> from pydra.tasks.afni.v25.preprocess.volreg import Volreg
 
     >>> task = Volreg()
     >>> task.inputs.in_file = Nifti1.mock("functional.nii")

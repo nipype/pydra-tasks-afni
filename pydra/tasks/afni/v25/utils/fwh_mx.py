@@ -126,7 +126,7 @@ class FWHMx(shell.Task["FWHMx.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.fwh_mx import FWHMx
+    >>> from pydra.tasks.afni.v25.utils.fwh_mx import FWHMx
 
     >>> task = FWHMx()
     >>> task.inputs.in_file = Nifti1.mock("functional.nii")

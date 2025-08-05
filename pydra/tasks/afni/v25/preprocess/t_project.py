@@ -19,7 +19,7 @@ class TProject(shell.Task["TProject.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.preprocess.t_project import TProject
+    >>> from pydra.tasks.afni.v25.preprocess.t_project import TProject
 
     >>> task = TProject()
     >>> task.inputs.in_file = Nifti1.mock("functional.nii")

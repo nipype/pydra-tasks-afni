@@ -17,7 +17,7 @@ class TNorm(shell.Task["TNorm.Outputs"]):
 
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.preprocess.t_norm import TNorm
+    >>> from pydra.tasks.afni.v25.preprocess.t_norm import TNorm
 
     >>> task = TNorm()
     >>> task.inputs.in_file = Nifti1.mock("functional.nii")

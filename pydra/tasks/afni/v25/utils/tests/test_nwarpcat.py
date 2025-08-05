@@ -1,6 +1,6 @@
 import logging
 from nipype2pydra.testing import PassAfterTimeoutWorker
-from pydra.tasks.afni.v25_2_06.utils.nwarp_cat import NwarpCat
+from pydra.tasks.afni.v25.utils.nwarp_cat import NwarpCat
 import pytest
 
 

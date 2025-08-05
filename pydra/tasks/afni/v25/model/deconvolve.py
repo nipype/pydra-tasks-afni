@@ -3,7 +3,7 @@ from fileformats.generic import File
 from fileformats.medimage import Nifti1
 from fileformats.medimage_afni import OneD
 import logging
-from pydra.tasks.afni.v25_2_06.nipype_ports.utils.filemanip import fname_presuffix
+from pydra.tasks.afni.v25.nipype_ports.utils.filemanip import fname_presuffix
 import os
 from pathlib import Path
 from pathlib._local import Path
@@ -134,7 +134,7 @@ class Deconvolve(shell.Task["Deconvolve.Outputs"]):
     >>> from fileformats.medimage import Nifti1
     >>> from fileformats.medimage_afni import OneD
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.model.deconvolve import Deconvolve
+    >>> from pydra.tasks.afni.v25.model.deconvolve import Deconvolve
 
     >>> task = Deconvolve()
     >>> task.inputs.in_files = [Nifti1.mock("functional.nii"), Nifti1.mock("functional2.nii")]

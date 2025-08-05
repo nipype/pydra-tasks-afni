@@ -34,7 +34,7 @@ class NwarpAdjust(shell.Task["NwarpAdjust.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import NiftiGz
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.nwarp_adjust import NwarpAdjust
+    >>> from pydra.tasks.afni.v25.utils.nwarp_adjust import NwarpAdjust
 
     >>> task = NwarpAdjust()
     >>> task.inputs.warps = [NiftiGz.mock("func2anat_InverseWarp.nii.gz"), NiftiGz.mock("func2anat_InverseWarp.nii.gz"), NiftiGz.mock("func2anat_InverseWarp.nii.gz"), NiftiGz.mock("func2anat_InverseWarp.nii.gz"), NiftiGz.mock("func2anat_InverseWarp.nii.gz")]

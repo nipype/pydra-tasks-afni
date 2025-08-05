@@ -37,7 +37,7 @@ class Retroicor(shell.Task["Retroicor.Outputs"]):
     >>> from fileformats.medimage import Nifti1
     >>> from fileformats.medimage_afni import OneD
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.preprocess.retroicor import Retroicor
+    >>> from pydra.tasks.afni.v25.preprocess.retroicor import Retroicor
 
     >>> task = Retroicor()
     >>> task.inputs.in_file = Nifti1.mock("functional.nii")

@@ -18,7 +18,7 @@ class Copy(shell.Task["Copy.Outputs"]):
     >>> from copy import deepcopy
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.copy import Copy
+    >>> from pydra.tasks.afni.v25.utils.copy import Copy
 
     >>> task = Copy()
     >>> task.inputs.in_file = Nifti1.mock("functional.nii")

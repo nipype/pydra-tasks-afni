@@ -17,7 +17,7 @@ class Fourier(shell.Task["Fourier.Outputs"]):
 
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.preprocess.fourier import Fourier
+    >>> from pydra.tasks.afni.v25.preprocess.fourier import Fourier
 
     >>> task = Fourier()
     >>> task.inputs.in_file = Nifti1.mock("functional.nii")

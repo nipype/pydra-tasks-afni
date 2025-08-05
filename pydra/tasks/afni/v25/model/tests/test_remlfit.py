@@ -3,7 +3,7 @@ from fileformats.medimage import Nifti1
 from fileformats.medimage_afni import OneD
 import logging
 from nipype2pydra.testing import PassAfterTimeoutWorker
-from pydra.tasks.afni.v25_2_06.model.remlfit import Remlfit
+from pydra.tasks.afni.v25.model.remlfit import Remlfit
 import pytest
 
 

@@ -43,7 +43,7 @@ class Seg(shell.Task["Seg.Outputs"]):
 
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
-    >>> from pydra.tasks.afni.v25_2_06.preprocess.seg import Seg
+    >>> from pydra.tasks.afni.v25.preprocess.seg import Seg
 
     >>> task = Seg()
     >>> task.inputs.in_file = Nifti1.mock("structural.nii")

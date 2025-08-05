@@ -19,7 +19,7 @@ class TStat(shell.Task["TStat.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.t_stat import TStat
+    >>> from pydra.tasks.afni.v25.utils.t_stat import TStat
 
     >>> task = TStat()
     >>> task.inputs.in_file = Nifti1.mock("functional.nii")

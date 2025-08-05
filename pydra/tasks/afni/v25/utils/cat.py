@@ -2,7 +2,7 @@ import attrs
 from fileformats.generic import File
 from fileformats.medimage_afni import OneD
 import logging
-from pydra.tasks.afni.v25_2_06.nipype_ports.utils.filemanip import split_filename
+from pydra.tasks.afni.v25.nipype_ports.utils.filemanip import split_filename
 from pathlib import Path
 from pathlib._local import Path
 from pydra.compose import shell
@@ -46,7 +46,7 @@ class Cat(shell.Task["Cat.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage_afni import OneD
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.cat import Cat
+    >>> from pydra.tasks.afni.v25.utils.cat import Cat
 
     >>> task = Cat()
     >>> task.inputs.out_file = "catout.1d"

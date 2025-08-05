@@ -19,7 +19,7 @@ class Fim(shell.Task["Fim.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.preprocess.fim import Fim
+    >>> from pydra.tasks.afni.v25.preprocess.fim import Fim
 
     >>> task = Fim()
     >>> task.inputs.in_file = Nifti1.mock("functional.nii")

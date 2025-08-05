@@ -44,7 +44,7 @@ class OneDToolPy(shell.Task["OneDToolPy.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage_afni import OneD
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.one_d_tool_py import OneDToolPy
+    >>> from pydra.tasks.afni.v25.utils.one_d_tool_py import OneDToolPy
 
     >>> task = OneDToolPy()
     >>> task.inputs.in_file = OneD.mock("f1.1D")

@@ -19,7 +19,7 @@ class Resample(shell.Task["Resample.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.resample import Resample
+    >>> from pydra.tasks.afni.v25.utils.resample import Resample
 
     >>> task = Resample()
     >>> task.inputs.in_file = Nifti1.mock("functional.nii")

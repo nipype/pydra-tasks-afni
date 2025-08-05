@@ -17,7 +17,7 @@ class Merge(shell.Task["Merge.Outputs"]):
 
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.merge import Merge
+    >>> from pydra.tasks.afni.v25.utils.merge import Merge
 
     >>> task = Merge()
     >>> task.inputs.in_files = [Nifti1.mock("functional.nii"), Nifti1.mock("functional2.nii")]

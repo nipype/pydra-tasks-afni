@@ -17,7 +17,7 @@ class SVMTrain(shell.Task["SVMTrain.Outputs"]):
 
     >>> from fileformats.generic import File
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.svm.svm_train import SVMTrain
+    >>> from pydra.tasks.afni.v25.svm.svm_train import SVMTrain
 
     """
 

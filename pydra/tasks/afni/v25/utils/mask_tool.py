@@ -17,7 +17,7 @@ class MaskTool(shell.Task["MaskTool.Outputs"]):
 
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.mask_tool import MaskTool
+    >>> from pydra.tasks.afni.v25.utils.mask_tool import MaskTool
 
     >>> task = MaskTool()
     >>> task.inputs.in_file = [Nifti1.mock("f"), Nifti1.mock("u"), Nifti1.mock("n"), Nifti1.mock("c"), Nifti1.mock("t"), Nifti1.mock("i"), Nifti1.mock("o"), Nifti1.mock("n"), Nifti1.mock("a"), Nifti1.mock("l"), Nifti1.mock("."), Nifti1.mock("n"), Nifti1.mock("i"), Nifti1.mock("i")]

@@ -39,7 +39,7 @@ class Eval(shell.Task["Eval.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage_afni import OneD
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.eval import Eval
+    >>> from pydra.tasks.afni.v25.utils.eval import Eval
 
     >>> task = Eval()
     >>> task.inputs.in_file_a = OneD.mock("seed.1D")

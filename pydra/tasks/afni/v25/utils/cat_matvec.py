@@ -32,7 +32,7 @@ class CatMatvec(shell.Task["CatMatvec.Outputs"]):
     -------
 
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.cat_matvec import CatMatvec
+    >>> from pydra.tasks.afni.v25.utils.cat_matvec import CatMatvec
 
     >>> task = CatMatvec()
     >>> task.inputs.in_file = [("structural.BRIK::WARP_DATA","I")]

@@ -17,7 +17,7 @@ class To3D(shell.Task["To3D.Outputs"]):
 
     >>> from fileformats.generic import Directory
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.to_3d import To3D
+    >>> from pydra.tasks.afni.v25.utils.to_3d import To3D
 
     >>> task = To3D()
     >>> task.inputs.out_file = "dicomdir.nii"

@@ -19,7 +19,7 @@ class TCorrelate(shell.Task["TCorrelate.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.preprocess.t_correlate import TCorrelate
+    >>> from pydra.tasks.afni.v25.preprocess.t_correlate import TCorrelate
 
     >>> task = TCorrelate()
     >>> task.inputs.xset = Nifti1.mock("u_rc1s1_Template.nii")

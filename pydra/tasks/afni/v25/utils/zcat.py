@@ -17,7 +17,7 @@ class Zcat(shell.Task["Zcat.Outputs"]):
 
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.zcat import Zcat
+    >>> from pydra.tasks.afni.v25.utils.zcat import Zcat
 
     >>> task = Zcat()
     >>> task.inputs.in_files = [Nifti1.mock("functional2.nii"), Nifti1.mock("functional3.nii")]

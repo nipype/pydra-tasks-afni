@@ -2,7 +2,7 @@ import attrs
 from fileformats.generic import File
 from fileformats.medimage import Nifti1
 import logging
-from pydra.tasks.afni.v25_2_06.nipype_ports.utils.filemanip import (
+from pydra.tasks.afni.v25.nipype_ports.utils.filemanip import (
     fname_presuffix,
     split_filename,
 )
@@ -52,7 +52,7 @@ class Warp(shell.Task["Warp.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.preprocess.warp import Warp
+    >>> from pydra.tasks.afni.v25.preprocess.warp import Warp
 
     >>> task = Warp()
     >>> task.inputs.in_file = Nifti1.mock("structural.nii")

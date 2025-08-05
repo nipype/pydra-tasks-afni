@@ -17,7 +17,7 @@ class ZCutUp(shell.Task["ZCutUp.Outputs"]):
 
     >>> from fileformats.medimage import Nifti1
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.z_cut_up import ZCutUp
+    >>> from pydra.tasks.afni.v25.utils.z_cut_up import ZCutUp
 
     >>> task = ZCutUp()
     >>> task.inputs.in_file = Nifti1.mock("functional.nii")

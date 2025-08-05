@@ -36,7 +36,7 @@ class ConvertDset(shell.Task["ConvertDset.Outputs"]):
     >>> from fileformats.medimage import Gifti
     >>> from fileformats.medimage_afni import Dset
     >>> from pathlib._local import Path
-    >>> from pydra.tasks.afni.v25_2_06.utils.convert_dset import ConvertDset
+    >>> from pydra.tasks.afni.v25.utils.convert_dset import ConvertDset
 
     >>> task = ConvertDset()
     >>> task.inputs.in_file = Gifti.mock("lh.pial_converted.gii")
