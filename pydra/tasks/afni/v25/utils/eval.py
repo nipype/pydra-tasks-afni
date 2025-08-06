@@ -3,7 +3,7 @@ from fileformats.generic import File
 from fileformats.medimage_afni import OneD
 import logging
 from pathlib import Path
-from pathlib._local import Path
+from pathlib import Path
 from pydra.compose import shell
 import typing as ty
 
@@ -38,7 +38,7 @@ class Eval(shell.Task["Eval.Outputs"]):
 
     >>> from fileformats.generic import File
     >>> from fileformats.medimage_afni import OneD
-    >>> from pathlib._local import Path
+    >>> from pathlib import Path
     >>> from pydra.tasks.afni.v25.utils.eval import Eval
 
     >>> task = Eval()

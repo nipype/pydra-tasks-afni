@@ -4,7 +4,7 @@ from fileformats.medimage_afni import Dset
 import logging
 import os.path as op
 from pathlib import Path
-from pathlib._local import Path
+from pathlib import Path
 from pydra.compose import shell
 import typing as ty
 
@@ -35,7 +35,7 @@ class ConvertDset(shell.Task["ConvertDset.Outputs"]):
 
     >>> from fileformats.medimage import Gifti
     >>> from fileformats.medimage_afni import Dset
-    >>> from pathlib._local import Path
+    >>> from pathlib import Path
     >>> from pydra.tasks.afni.v25.utils.convert_dset import ConvertDset
 
     >>> task = ConvertDset()

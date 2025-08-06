@@ -5,7 +5,7 @@ import logging
 from pydra.tasks.afni.v25.nipype_ports.utils.filemanip import fname_presuffix
 import os
 from pathlib import Path
-from pathlib._local import Path
+from pathlib import Path
 from pydra.compose import shell
 import typing as ty
 
@@ -65,7 +65,7 @@ class NetCorr(shell.Task["NetCorr.Outputs"]):
 
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
-    >>> from pathlib._local import Path
+    >>> from pathlib import Path
     >>> from pydra.tasks.afni.v25.preprocess.net_corr import NetCorr
 
     >>> task = NetCorr()

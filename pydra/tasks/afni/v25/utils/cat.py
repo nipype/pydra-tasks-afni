@@ -4,7 +4,7 @@ from fileformats.medimage_afni import OneD
 import logging
 from pydra.tasks.afni.v25.nipype_ports.utils.filemanip import split_filename
 from pathlib import Path
-from pathlib._local import Path
+from pathlib import Path
 from pydra.compose import shell
 import typing as ty
 
@@ -45,7 +45,7 @@ class Cat(shell.Task["Cat.Outputs"]):
 
     >>> from fileformats.generic import File
     >>> from fileformats.medimage_afni import OneD
-    >>> from pathlib._local import Path
+    >>> from pathlib import Path
     >>> from pydra.tasks.afni.v25.utils.cat import Cat
 
     >>> task = Cat()

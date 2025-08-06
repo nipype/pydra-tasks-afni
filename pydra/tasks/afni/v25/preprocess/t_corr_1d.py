@@ -2,7 +2,7 @@ from fileformats.generic import File
 from fileformats.medimage import Nifti1
 import logging
 from pathlib import Path
-from pathlib._local import Path
+from pathlib import Path
 from pydra.compose import shell
 import typing as ty
 
@@ -18,7 +18,7 @@ class TCorr1D(shell.Task["TCorr1D.Outputs"]):
 
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
-    >>> from pathlib._local import Path
+    >>> from pathlib import Path
     >>> from pydra.tasks.afni.v25.preprocess.t_corr_1d import TCorr1D
 
     >>> task = TCorr1D()

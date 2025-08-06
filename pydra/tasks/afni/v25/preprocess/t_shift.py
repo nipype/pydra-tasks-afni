@@ -5,7 +5,7 @@ import logging
 from pydra.tasks.afni.v25.nipype_ports.utils.filemanip import split_filename
 import os
 from pathlib import Path
-from pathlib._local import Path
+from pathlib import Path
 from pydra.compose import shell
 import typing as ty
 
@@ -77,7 +77,7 @@ class TShift(shell.Task["TShift.Outputs"]):
 
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
-    >>> from pathlib._local import Path
+    >>> from pathlib import Path
     >>> from pydra.tasks.afni.v25.preprocess.t_shift import TShift
 
     >>> task = TShift()

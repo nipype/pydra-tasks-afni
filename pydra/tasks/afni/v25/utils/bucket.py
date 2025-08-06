@@ -1,6 +1,6 @@
 import logging
 from pathlib import Path
-from pathlib._local import Path
+from pathlib import Path
 from pydra.compose import shell
 import typing as ty
 
@@ -28,7 +28,7 @@ class Bucket(shell.Task["Bucket.Outputs"]):
     Examples
     -------
 
-    >>> from pathlib._local import Path
+    >>> from pathlib import Path
     >>> from pydra.tasks.afni.v25.utils.bucket import Bucket
 
     >>> task = Bucket()

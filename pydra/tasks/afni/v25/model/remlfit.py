@@ -5,7 +5,7 @@ from fileformats.medimage_afni import OneD
 import logging
 import os
 from pathlib import Path
-from pathlib._local import Path
+from pathlib import Path
 from pydra.compose import shell
 import typing as ty
 
@@ -139,7 +139,7 @@ class Remlfit(shell.Task["Remlfit.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
     >>> from fileformats.medimage_afni import OneD
-    >>> from pathlib._local import Path
+    >>> from pathlib import Path
     >>> from pydra.tasks.afni.v25.model.remlfit import Remlfit
 
     >>> task = Remlfit()

@@ -6,7 +6,7 @@ from pydra.tasks.afni.v25.base import Info
 from pydra.tasks.afni.v25.nipype_ports.utils.filemanip import fname_presuffix
 import os
 from pathlib import Path
-from pathlib._local import Path
+from pathlib import Path
 from pydra.compose import shell
 import typing as ty
 
@@ -185,7 +185,7 @@ class QwarpPlusMinus(shell.Task["QwarpPlusMinus.Outputs"]):
 
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import NiftiGz
-    >>> from pathlib._local import Path
+    >>> from pathlib import Path
     >>> from pydra.tasks.afni.v25.preprocess.qwarp_plus_minus import QwarpPlusMinus
 
     >>> task = QwarpPlusMinus()

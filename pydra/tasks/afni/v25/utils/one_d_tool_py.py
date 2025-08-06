@@ -4,7 +4,7 @@ from fileformats.medimage_afni import OneD
 import logging
 import os
 from pathlib import Path
-from pathlib._local import Path
+from pathlib import Path
 from pydra.compose import shell
 import typing as ty
 
@@ -43,7 +43,7 @@ class OneDToolPy(shell.Task["OneDToolPy.Outputs"]):
 
     >>> from fileformats.generic import File
     >>> from fileformats.medimage_afni import OneD
-    >>> from pathlib._local import Path
+    >>> from pathlib import Path
     >>> from pydra.tasks.afni.v25.utils.one_d_tool_py import OneDToolPy
 
     >>> task = OneDToolPy()

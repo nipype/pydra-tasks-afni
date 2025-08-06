@@ -2,7 +2,7 @@ import attrs
 from fileformats.medimage import Nifti1
 import logging
 from pathlib import Path
-from pathlib._local import Path
+from pathlib import Path
 from pydra.compose import shell
 import re
 import typing as ty
@@ -78,7 +78,7 @@ class Autobox(shell.Task["Autobox.Outputs"]):
     -------
 
     >>> from fileformats.medimage import Nifti1
-    >>> from pathlib._local import Path
+    >>> from pathlib import Path
     >>> from pydra.tasks.afni.v25.utils.autobox import Autobox
 
     >>> task = Autobox()

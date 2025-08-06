@@ -11,7 +11,7 @@ from pydra.tasks.afni.v25.nipype_ports.utils.filemanip import (
 import os
 import os.path as op
 from pathlib import Path
-from pathlib._local import Path
+from pathlib import Path
 from pydra.compose import shell
 import typing as ty
 
@@ -119,7 +119,7 @@ class Allineate(shell.Task["Allineate.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
     >>> from fileformats.text import TextFile
-    >>> from pathlib._local import Path
+    >>> from pathlib import Path
     >>> from pydra.tasks.afni.v25.preprocess.allineate import Allineate
 
     >>> task = Allineate()

@@ -3,7 +3,7 @@ from fileformats.medimage import NiftiGz
 import logging
 import os
 from pathlib import Path
-from pathlib._local import Path
+from pathlib import Path
 from pydra.compose import shell
 import typing as ty
 
@@ -33,7 +33,7 @@ class NwarpAdjust(shell.Task["NwarpAdjust.Outputs"]):
 
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import NiftiGz
-    >>> from pathlib._local import Path
+    >>> from pathlib import Path
     >>> from pydra.tasks.afni.v25.utils.nwarp_adjust import NwarpAdjust
 
     >>> task = NwarpAdjust()

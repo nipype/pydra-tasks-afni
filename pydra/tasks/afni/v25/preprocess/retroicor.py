@@ -4,7 +4,7 @@ from fileformats.medimage import Nifti1
 from fileformats.medimage_afni import OneD
 import logging
 from pathlib import Path
-from pathlib._local import Path
+from pathlib import Path
 from pydra.compose import shell
 import typing as ty
 
@@ -36,7 +36,7 @@ class Retroicor(shell.Task["Retroicor.Outputs"]):
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
     >>> from fileformats.medimage_afni import OneD
-    >>> from pathlib._local import Path
+    >>> from pathlib import Path
     >>> from pydra.tasks.afni.v25.preprocess.retroicor import Retroicor
 
     >>> task = Retroicor()

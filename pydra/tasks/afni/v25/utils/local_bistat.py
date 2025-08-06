@@ -2,7 +2,7 @@ from fileformats.generic import File
 from fileformats.medimage import Nifti1
 import logging
 from pathlib import Path
-from pathlib._local import Path
+from pathlib import Path
 from pydra.compose import shell
 from pydra.utils.typing import MultiInputObj
 import typing as ty
@@ -38,7 +38,7 @@ class LocalBistat(shell.Task["LocalBistat.Outputs"]):
 
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
-    >>> from pathlib._local import Path
+    >>> from pathlib import Path
     >>> from pydra.tasks.afni.v25.utils.local_bistat import LocalBistat
     >>> from pydra.utils.typing import MultiInputObj
 

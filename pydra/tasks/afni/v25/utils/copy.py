@@ -1,7 +1,7 @@
 from fileformats.medimage import Nifti1
 import logging
 from pathlib import Path
-from pathlib._local import Path
+from pathlib import Path
 from pydra.compose import shell
 import typing as ty
 
@@ -17,7 +17,7 @@ class Copy(shell.Task["Copy.Outputs"]):
 
     >>> from copy import deepcopy
     >>> from fileformats.medimage import Nifti1
-    >>> from pathlib._local import Path
+    >>> from pathlib import Path
     >>> from pydra.tasks.afni.v25.utils.copy import Copy
 
     >>> task = Copy()

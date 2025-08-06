@@ -1,7 +1,7 @@
 from fileformats.generic import Directory
 import logging
 from pathlib import Path
-from pathlib._local import Path
+from pathlib import Path
 from pydra.compose import shell
 import typing as ty
 
@@ -16,7 +16,7 @@ class To3D(shell.Task["To3D.Outputs"]):
     -------
 
     >>> from fileformats.generic import Directory
-    >>> from pathlib._local import Path
+    >>> from pathlib import Path
     >>> from pydra.tasks.afni.v25.utils.to_3d import To3D
 
     >>> task = To3D()

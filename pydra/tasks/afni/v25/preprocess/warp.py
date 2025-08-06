@@ -7,7 +7,7 @@ from pydra.tasks.afni.v25.nipype_ports.utils.filemanip import (
     split_filename,
 )
 from pathlib import Path
-from pathlib._local import Path
+from pathlib import Path
 from pydra.compose import shell
 import typing as ty
 
@@ -51,7 +51,7 @@ class Warp(shell.Task["Warp.Outputs"]):
 
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
-    >>> from pathlib._local import Path
+    >>> from pathlib import Path
     >>> from pydra.tasks.afni.v25.preprocess.warp import Warp
 
     >>> task = Warp()

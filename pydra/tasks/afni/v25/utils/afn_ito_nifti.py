@@ -2,7 +2,7 @@ from fileformats.medimage_afni import ThreeD
 import logging
 import os
 from pathlib import Path
-from pathlib._local import Path
+from pathlib import Path
 from pydra.compose import shell
 import typing as ty
 
@@ -21,7 +21,7 @@ class AFNItoNIFTI(shell.Task["AFNItoNIFTI.Outputs"]):
     -------
 
     >>> from fileformats.medimage_afni import ThreeD
-    >>> from pathlib._local import Path
+    >>> from pathlib import Path
     >>> from pydra.tasks.afni.v25.utils.afn_ito_nifti import AFNItoNIFTI
 
     >>> task = AFNItoNIFTI()

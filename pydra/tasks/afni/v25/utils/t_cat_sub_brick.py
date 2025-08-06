@@ -1,7 +1,7 @@
 import logging
 from pydra.tasks.afni.v25.nipype_ports.utils.filemanip import fname_presuffix
 from pathlib import Path
-from pathlib._local import Path
+from pathlib import Path
 from pydra.compose import shell
 import typing as ty
 
@@ -26,7 +26,7 @@ class TCatSubBrick(shell.Task["TCatSubBrick.Outputs"]):
     Examples
     -------
 
-    >>> from pathlib._local import Path
+    >>> from pathlib import Path
     >>> from pydra.tasks.afni.v25.utils.t_cat_sub_brick import TCatSubBrick
 
     >>> task = TCatSubBrick()
