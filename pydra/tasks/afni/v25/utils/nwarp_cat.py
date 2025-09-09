@@ -60,7 +60,7 @@ class NwarpCat(shell.Task["NwarpCat.Outputs"]):
     in_files: list[ty.Any] = shell.arg(
         help="list of tuples of 3D warps and associated functions",
         position=-1,
-        formatter="in_files_formatter",
+        formatter=in_files_formatter,
     )
     space: ty.Any = shell.arg(
         help="string to attach to the output dataset as its atlas space marker.",

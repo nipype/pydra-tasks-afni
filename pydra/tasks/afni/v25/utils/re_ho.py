@@ -78,7 +78,7 @@ class ReHo(shell.Task["ReHo.Outputs"]):
     )
     neighborhood: ty.Any | None = shell.arg(
         help="\nvoxels in neighborhood. can be:\n``faces`` (for voxel and 6 facewise neighbors, only),\n``edges`` (for voxel and 18 face- and edge-wise neighbors),\n``vertices`` (for voxel and 26 face-, edge-, and node-wise neighbors).",
-        formatter="neighborhood_formatter",
+        formatter=neighborhood_formatter,
     )
     sphere: float | None = shell.arg(
         help="\\\nFor additional voxelwise neighborhood control, the\nradius R of a desired neighborhood can be put in; R is\na floating point number, and must be >1. Examples of\nthe numbers of voxels in a given radius are as follows\n(you can roughly approximate with the ol' :math:`4\\pi\\,R^3/3`\nthing):\n\n    * R=2.0 -> V=33\n    * R=2.3 -> V=57,\n    * R=2.9 -> V=93,\n    * R=3.1 -> V=123,\n    * R=3.9 -> V=251,\n    * R=4.5 -> V=389,\n    * R=6.1 -> V=949,\n\nbut you can choose most any value.",

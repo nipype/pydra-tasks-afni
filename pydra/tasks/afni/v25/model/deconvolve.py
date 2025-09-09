@@ -312,7 +312,7 @@ class Deconvolve(shell.Task["Deconvolve.Outputs"]):
     gltsym: list[str] = shell.arg(
         help="general linear tests (i.e., contrasts) using symbolic conventions (e.g., '+Label1 -Label2')",
         position=-2,
-        formatter="gltsym_formatter",
+        formatter=gltsym_formatter,
     )
     glt_label: list[ty.Any] = shell.arg(
         help="general linear test (i.e., contrast) labels",

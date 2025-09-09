@@ -53,7 +53,7 @@ class Retroicor(shell.Task["Retroicor.Outputs"]):
 
     executable = "3dretroicor"
     in_file: Nifti1 = shell.arg(
-        help="input file to 3dretroicor", position=-1, formatter="in_file_formatter"
+        help="input file to 3dretroicor", position=-1, formatter=in_file_formatter
     )
     card: File = shell.arg(
         help="1D cardiac data file for cardiac correction",

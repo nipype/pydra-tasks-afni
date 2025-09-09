@@ -149,7 +149,7 @@ class FWHMx(shell.Task["FWHMx.Outputs"]):
     )
     detrend: ty.Any | None = shell.arg(
         help="instead of demed (0th order detrending), detrend to the specified order.  If order is not given, the program picks q=NT/30. -detrend disables -demed, and includes -unif.",
-        formatter="detrend_formatter",
+        formatter=detrend_formatter,
         default=False,
     )
     demed: bool = shell.arg(
@@ -176,7 +176,7 @@ class FWHMx(shell.Task["FWHMx.Outputs"]):
     )
     acf: ty.Any = shell.arg(
         help="computes the spatial autocorrelation",
-        formatter="acf_formatter",
+        formatter=acf_formatter,
         default=False,
     )
 

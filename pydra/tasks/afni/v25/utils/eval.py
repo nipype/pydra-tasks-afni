@@ -56,7 +56,7 @@ class Eval(shell.Task["Eval.Outputs"]):
 
     executable = "1deval"
     in_file_a: OneD = shell.arg(
-        help="input file to 1deval", formatter="in_file_a_formatter", position=1
+        help="input file to 1deval", formatter=in_file_a_formatter, position=1
     )
     in_file_b: File = shell.arg(
         help="operand file to 1deval", argstr="-b {in_file_b}", position=2

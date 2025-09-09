@@ -81,11 +81,11 @@ class Localstat(shell.Task["Localstat.Outputs"]):
     in_file: Nifti1 = shell.arg(help="input dataset", argstr="{in_file}", position=-1)
     neighborhood: ty.Any = shell.arg(
         help="The region around each voxel that will be extracted for the statistics calculation. Possible regions are: 'SPHERE', 'RHDD' (rhombic dodecahedron), 'TOHD' (truncated octahedron) with a given radius in mm or 'RECT' (rectangular block) with dimensions to specify in mm.",
-        formatter="neighborhood_formatter",
+        formatter=neighborhood_formatter,
     )
     stat: MultiInputObj = shell.arg(
         help="statistics to compute. Possible names are:\n\n * mean   = average of the values\n * stdev  = standard deviation\n * var    = variance (stdev\\*stdev)\n * cvar   = coefficient of variation = stdev/fabs(mean)\n * median = median of the values\n * MAD    = median absolute deviation\n * min    = minimum\n * max    = maximum\n * absmax = maximum of the absolute values\n * num    = number of the values in the region:\n            with the use of -mask or -automask,\n            the size of the region around any given\n            voxel will vary; this option lets you\n            map that size.  It may be useful if you\n            plan to compute a t-statistic (say) from\n            the mean and stdev outputs.\n * sum    = sum of the values in the region\n * FWHM   = compute (like 3dFWHM) image smoothness\n            inside each voxel's neighborhood.  Results\n            are in 3 sub-bricks: FWHMx, FHWMy, and FWHMz.\n            Places where an output is -1 are locations\n            where the FWHM value could not be computed\n            (e.g., outside the mask).\n * FWHMbar= Compute just the average of the 3 FWHM values\n            (normally would NOT do this with FWHM also).\n * perc:P0:P1:Pstep =\n            Compute percentiles between P0 and P1 with a\n            step of Pstep.\n            Default P1 is equal to P0 and default P2 = 1\n * rank   = rank of the voxel's intensity\n * frank  = rank / number of voxels in neighborhood\n * P2skew = Pearson's second skewness coefficient\n             3 \\* (mean - median) / stdev\n * ALL    = all of the above, in that order\n            (except for FWHMbar and perc).\n * mMP2s  = Exactly the same output as:\n            median, MAD, P2skew,\n            but a little faster\n * mmMP2s = Exactly the same output as:\n            mean, median, MAD, P2skew\n\nMore than one option can be used.",
-        formatter="stat_formatter",
+        formatter=stat_formatter,
     )
     mask_file: File = shell.arg(
         help="Mask image file name. Voxels NOT in the mask will not be used in the neighborhood of any voxel. Also, a voxel NOT in the mask will have its statistic(s) computed as zero (0) unless the parameter 'nonmask' is set to true.",
@@ -100,11 +100,11 @@ class Localstat(shell.Task["Localstat.Outputs"]):
     )
     reduce_grid: ty.Any | None = shell.arg(
         help="Compute output on a grid that is reduced by the specified factors. If a single value is passed, output is resampled to the specified isotropic grid. Otherwise, the 3 inputs describe the reduction in the X, Y, and Z directions. This option speeds up computations at the expense of resolution. It should only be used when the nbhd is quite large with respect to the input's resolution, and the resultant stats are expected to be smooth.",
-        formatter="reduce_grid_formatter",
+        formatter=reduce_grid_formatter,
     )
     reduce_restore_grid: ty.Any | None = shell.arg(
         help="Like reduce_grid, but also resample output back to input grid.",
-        formatter="reduce_restore_grid_formatter",
+        formatter=reduce_restore_grid_formatter,
     )
     reduce_max_vox: float | None = shell.arg(
         help="Like reduce_restore_grid, but automatically set Rx Ry Rz sothat the computation grid is at a resolution of nbhd/MAX_VOXvoxels.",
