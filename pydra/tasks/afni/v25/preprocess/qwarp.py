@@ -294,7 +294,7 @@ class Qwarp(shell.Task["Qwarp.Outputs"]):
     allineate_opts: str = shell.arg(
         help="add extra options to the 3dAllineate command to be run by 3dQwarp.",
         requires=["allineate"],
-        formatter="allineate_opts_formatter",
+        formatter=allineate_opts_formatter,
     )
     nowarp: bool = shell.arg(help="Do not save the _WARP file.", argstr="-nowarp")
     iwarp: bool = shell.arg(

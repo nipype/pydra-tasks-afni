@@ -63,7 +63,7 @@ class Volreg(shell.Task["Volreg.Outputs"]):
     )
     in_weight_volume: ty.Any = shell.arg(
         help="weights for each voxel specified by a file with an optional volume number (defaults to 0)",
-        formatter="in_weight_volume_formatter",
+        formatter=in_weight_volume_formatter,
     )
     basefile: Nifti1 = shell.arg(
         help="base file for registration", argstr="-base {basefile}", position=-6

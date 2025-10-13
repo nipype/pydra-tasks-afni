@@ -15,7 +15,7 @@ try:
     from ._version import __version__
 except ImportError:
     raise RuntimeError(
-        "pydra-afni has not been properly installed, please run "
+        "pydra-tasks-afni has not been properly installed, please run "
         f"`pip install -e {str(pkg_path)}` to install a development version"
     )
 if "nipype" not in __version__:

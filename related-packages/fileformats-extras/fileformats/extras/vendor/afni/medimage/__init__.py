@@ -1,7 +1,7 @@
 import typing as ty
 from pathlib import Path
 from fileformats.core import FileSet, SampleFileGenerator
-from fileformats.medimage_afni import (
+from fileformats.vendor.afni.medimage import (
     OneD,
     Dset,
     ThreeD,

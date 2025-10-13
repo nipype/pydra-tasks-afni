@@ -140,11 +140,11 @@ class TShift(shell.Task["TShift.Outputs"]):
     )
     tpattern: ty.Any | None = shell.arg(
         help="use specified slice time pattern rather than one in header",
-        formatter="tpattern_formatter",
+        formatter=tpattern_formatter,
     )
     slice_timing: ty.Any | None = shell.arg(
         help="time offsets from the volume acquisition onset for each slice",
-        formatter="slice_timing_formatter",
+        formatter=slice_timing_formatter,
     )
     slice_encoding_direction: ty.Any = shell.arg(
         help="Direction in which slice_timing is specified (default: k). If negative,slice_timing is defined in reverse order, that is, the first entry corresponds to the slice with the largest index, and the final entry corresponds to slice index zero. Only in effect when slice_timing is passed as list, not when it is passed as file.",

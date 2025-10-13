@@ -66,7 +66,7 @@ class Calc(shell.Task["Calc.Outputs"]):
 
     executable = "3dcalc"
     in_file_a: Nifti1 = shell.arg(
-        help="input file to 3dcalc", formatter="in_file_a_formatter", position=1
+        help="input file to 3dcalc", formatter=in_file_a_formatter, position=1
     )
     in_file_b: File = shell.arg(
         help="operand file to 3dcalc", argstr="-b {in_file_b}", position=2

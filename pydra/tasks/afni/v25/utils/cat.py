@@ -1,6 +1,6 @@
 import attrs
 from fileformats.generic import File
-from fileformats.medimage_afni import OneD
+from fileformats.vendor.afni.medimage import OneD
 import logging
 from pydra.tasks.afni.v25.nipype_ports.utils.filemanip import split_filename
 from pathlib import Path
@@ -44,7 +44,7 @@ class Cat(shell.Task["Cat.Outputs"]):
     -------
 
     >>> from fileformats.generic import File
-    >>> from fileformats.medimage_afni import OneD
+    >>> from fileformats.vendor.afni.medimage import OneD
     >>> from pathlib import Path
     >>> from pydra.tasks.afni.v25.utils.cat import Cat
 

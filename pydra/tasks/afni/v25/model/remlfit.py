@@ -1,7 +1,7 @@
 import attrs
 from fileformats.generic import File
 from fileformats.medimage import Nifti1
-from fileformats.medimage_afni import OneD
+from fileformats.vendor.afni.medimage import OneD
 import logging
 import os
 from pathlib import Path
@@ -138,7 +138,7 @@ class Remlfit(shell.Task["Remlfit.Outputs"]):
 
     >>> from fileformats.generic import File
     >>> from fileformats.medimage import Nifti1
-    >>> from fileformats.medimage_afni import OneD
+    >>> from fileformats.vendor.afni.medimage import OneD
     >>> from pathlib import Path
     >>> from pydra.tasks.afni.v25.model.remlfit import Remlfit
 

@@ -216,7 +216,7 @@ class TCorrMap(shell.Task["TCorrMap.Outputs"]):
         help="", argstr="-Sexpr {sum_expr[0]} {sum_expr[1]}"
     )
     histogram_bin_numbers: int = shell.arg(help="")
-    histogram: Path = shell.arg(help="", formatter="histogram_formatter")
+    histogram: Path = shell.arg(help="", formatter=histogram_formatter)
     num_threads: int = shell.arg(help="set number of threads", default=1)
     outputtype: ty.Any = shell.arg(help="AFNI output filetype")
     out_file: Path = shell.arg(

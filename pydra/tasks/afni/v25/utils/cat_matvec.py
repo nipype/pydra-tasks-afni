@@ -46,7 +46,7 @@ class CatMatvec(shell.Task["CatMatvec.Outputs"]):
     in_file: list[ty.Any] = shell.arg(
         help="list of tuples of mfiles and associated opkeys",
         position=-2,
-        formatter="in_file_formatter",
+        formatter=in_file_formatter,
     )
     matrix: bool = shell.arg(
         help="indicates that the resulting matrix willbe written to outfile in the 'MATRIX(...)' format (FORM 3).This feature could be used, with clever scripting, to inputa matrix directly on the command line to program 3dWarp.",

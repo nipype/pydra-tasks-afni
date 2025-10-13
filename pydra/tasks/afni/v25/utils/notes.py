@@ -1,6 +1,6 @@
 import attrs
 from fileformats.generic import File
-from fileformats.medimage_afni import Head
+from fileformats.vendor.afni.medimage import Head
 import logging
 import os
 from pathlib import Path
@@ -34,7 +34,7 @@ class Notes(shell.Task["Notes.Outputs"]):
     -------
 
     >>> from fileformats.generic import File
-    >>> from fileformats.medimage_afni import Head
+    >>> from fileformats.vendor.afni.medimage import Head
     >>> from pathlib import Path
     >>> from pydra.tasks.afni.v25.utils.notes import Notes
 

@@ -1,4 +1,4 @@
-from fileformats.medimage_afni import ThreeD
+from fileformats.vendor.afni.medimage import ThreeD
 import logging
 import os
 from pathlib import Path
@@ -20,7 +20,7 @@ class AFNItoNIFTI(shell.Task["AFNItoNIFTI.Outputs"]):
     Examples
     -------
 
-    >>> from fileformats.medimage_afni import ThreeD
+    >>> from fileformats.vendor.afni.medimage import ThreeD
     >>> from pathlib import Path
     >>> from pydra.tasks.afni.v25.utils.afn_ito_nifti import AFNItoNIFTI
 

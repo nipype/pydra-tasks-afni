@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = "pydra-afni"
+project = "pydra-tasks-afni"
 copyright = "2020, Xihe Xie"
 author = "Xihe Xie"
 

@@ -1,4 +1,4 @@
-from fileformats.medimage_afni import ThreeD
+from fileformats.vendor.afni.medimage import ThreeD
 import logging
 from nipype2pydra.testing import PassAfterTimeoutWorker
 from pydra.tasks.afni.v25.utils.afn_ito_nifti import AFNItoNIFTI
