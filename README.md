@@ -1,7 +1,7 @@
 # Pydra task package for afni
 
 [![CI/CD](https://github.com/nipype/pydra-afni/actions/workflows/ci-cd.yaml/badge.svg)](https://github.com/nipype/pydra-afni/actions/workflows/ci-cd.yaml)
-[![codecov](https://codecov.io/gh/nipype/pydra-afni/branch/main/graph/badge.svg?token=UIS0OGPST7)](https://codecov.io/gh/nipype/pydra-afni)
+[![codecov](https://codecov.io/gh/nipype/pydra-tasks-afni/branch/main/graph/badge.svg?token=UIS0OGPST7)](https://codecov.io/gh/nipype/pydra-tasks-afni)
 [![Python versions](https://img.shields.io/pypi/pyversions/pydra-afni.svg)](https://pypi.python.org/pypi/pydra-afni/)
 [![Latest Version](https://img.shields.io/pypi/v/pydra-afni.svg)](https://pypi.python.org/pypi/pydra-afni/)
 
