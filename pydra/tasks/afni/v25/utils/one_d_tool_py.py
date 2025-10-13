@@ -1,6 +1,6 @@
 import attrs
 from fileformats.generic import File
-from fileformats.medimage_afni import OneD
+from fileformats.vendor.afni.medimage import OneD
 import logging
 import os
 from pathlib import Path
@@ -42,7 +42,7 @@ class OneDToolPy(shell.Task["OneDToolPy.Outputs"]):
     -------
 
     >>> from fileformats.generic import File
-    >>> from fileformats.medimage_afni import OneD
+    >>> from fileformats.vendor.afni.medimage import OneD
     >>> from pathlib import Path
     >>> from pydra.tasks.afni.v25.utils.one_d_tool_py import OneDToolPy
 

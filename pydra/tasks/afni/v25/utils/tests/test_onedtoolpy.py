@@ -1,5 +1,5 @@
 from fileformats.generic import File
-from fileformats.medimage_afni import OneD
+from fileformats.vendor.afni.medimage import OneD
 import logging
 from nipype2pydra.testing import PassAfterTimeoutWorker
 from pydra.tasks.afni.v25.utils.one_d_tool_py import OneDToolPy

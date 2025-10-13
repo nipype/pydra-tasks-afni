@@ -1,6 +1,6 @@
 import attrs
 from fileformats.medimage import Gifti
-from fileformats.medimage_afni import Dset
+from fileformats.vendor.afni.medimage import Dset
 import logging
 import os.path as op
 from pathlib import Path
@@ -34,7 +34,7 @@ class ConvertDset(shell.Task["ConvertDset.Outputs"]):
     -------
 
     >>> from fileformats.medimage import Gifti
-    >>> from fileformats.medimage_afni import Dset
+    >>> from fileformats.vendor.afni.medimage import Dset
     >>> from pathlib import Path
     >>> from pydra.tasks.afni.v25.utils.convert_dset import ConvertDset
 

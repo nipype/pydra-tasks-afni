@@ -6,6 +6,6 @@ PyYAML>=6.0
 fileformats >=0.8
 fileformats-medimage >=0.4
 fileformats-datascience >= 0.1
-fileformats-medimage-afni
+fileformats-vendor-afni
 traits
 nipype2pydra

@@ -1,6 +1,6 @@
 from fileformats.generic import File
 from fileformats.medimage import Nifti1
-from fileformats.medimage_afni import OneD
+from fileformats.vendor.afni.medimage import OneD
 import logging
 from nipype2pydra.testing import PassAfterTimeoutWorker
 from pydra.tasks.afni.v25.model.remlfit import Remlfit
