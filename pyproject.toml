@@ -13,7 +13,8 @@ dependencies = [
     "fileformats-datascience >=0.3.2",
     "fileformats-medimage >=0.10.5",
     "fileformats-vendor-afni",
-    "looseversion>=1.3.0"
+    "looseversion>=1.3.0",
+    "simplejson>= 3.18.0",
 ]
 license = {file = "LICENSE"}
 authors = [{name = "Nipype developers", email = "neuroimaging@python.org"}]
